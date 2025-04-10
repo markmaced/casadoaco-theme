@@ -1,0 +1,1 @@
+<?php echo do_shortcode('[tabela_produto id="12"]')?>
