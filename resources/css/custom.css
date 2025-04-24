@@ -47,3 +47,19 @@ body{
     max-width: 100%;
     overflow-x: hidden;
 }
+
+.swiper-button-next, .swiper-button-prev{
+    color: #000 !important;
+
+}
+.swiper-button-prev{
+    left: 40px !important;
+}
+
+.swiper-button-next{
+    right: 100px !important;
+}
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 36px !important;
+    font-weight: 900 !important;
+}

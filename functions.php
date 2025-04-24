@@ -43,8 +43,21 @@ add_action( 'after_setup_theme', 'tailpress_setup' );
 function tailpress_enqueue_scripts() {
 	$theme = wp_get_theme();
 
+	// Estilos
 	wp_enqueue_style( 'tailpress', tailpress_asset( 'css/app.css' ), array(), $theme->get( 'Version' ) );
-	wp_enqueue_script( 'tailpress', tailpress_asset( 'js/app.js' ), array(), $theme->get( 'Version' ) );
+	wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0' );
+	wp_enqueue_style( 'sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css', array(), '11.0.0' );
+
+	// Scripts
+	wp_enqueue_script( 'tailpress', tailpress_asset( 'js/app.js' ), array('jquery'), $theme->get( 'Version' ), true );
+	wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true );
+	wp_enqueue_script( 'sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js', array(), '11.0.0', true );
+
+	// Dados para JS
+	wp_localize_script( 'tailpress', 'tailpressData', array(
+		'is_page'   => is_page(),
+		'admin_url' => admin_url()
+	) );
 }
 
 add_action( 'wp_enqueue_scripts', 'tailpress_enqueue_scripts' );
@@ -115,3 +128,6 @@ $functions_path = get_template_directory() . '/functions/';
 require_once($functions_path . 'theme-options.php');
 require_once($functions_path . 'import-table.php');
 require_once($functions_path . 'shortcode-table-products.php');
+require_once($functions_path . 'components/products-grid.php');
+require_once($functions_path . 'components/articles-grid.php');
+require_once($functions_path . 'components/calculator-cta.php');

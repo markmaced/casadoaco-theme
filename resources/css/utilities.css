@@ -45,3 +45,6 @@
 @utility bg-casadoaco-orange{
     background-color: #F7921A;
 }
+@utility text-wave{
+    color: #eb0071;
+}

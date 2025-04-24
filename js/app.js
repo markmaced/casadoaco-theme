@@ -33,13 +33,84 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************/
 /***/ (() => {
 
-// Navigation toggle
-window.addEventListener('load', function () {
-  var main_navigation = document.querySelector('#primary-menu');
-  document.querySelector('#primary-menu-toggle').addEventListener('click', function (e) {
-    e.preventDefault();
-    main_navigation.classList.toggle('hidden');
+jQuery(document).ready(function ($) {
+  var swiper = new Swiper('.swiper', {
+    slidesPerView: 3,
+    spaceBetween: 60,
+    breakpoints: {
+      768: {
+        slidesPerView: 6,
+        spaceBetween: 60
+      }
+    },
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false // Continua mesmo após interação do usuário
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
   });
+  var counterStarted = false;
+  var observer = new IntersectionObserver(function (entries) {
+    var entry = entries[0];
+    if (entry.isIntersecting && !counterStarted) {
+      counterStarted = true;
+      $('.counter').each(function () {
+        var $this = $(this);
+        var countTo = parseInt($this.attr('data-count'));
+        if (countTo === 10) {
+          $({
+            countNum: 0
+          }).animate({
+            countNum: countTo
+          }, {
+            duration: 2000,
+            easing: 'swing',
+            step: function step(now) {
+              if (now >= 10) {
+                $this.text('10M');
+              } else {
+                $this.text(Math.floor(now).toLocaleString('pt-BR'));
+              }
+            },
+            complete: function complete() {
+              $this.text('10M');
+            }
+          });
+        } else {
+          $({
+            countNum: 0
+          }).animate({
+            countNum: countTo
+          }, {
+            duration: 2000,
+            easing: 'swing',
+            step: function step(now) {
+              $this.text(Math.floor(now).toLocaleString('pt-BR'));
+            },
+            complete: function complete() {
+              $this.text(countTo.toLocaleString('pt-BR'));
+            }
+          });
+        }
+      });
+    }
+  }, {
+    threshold: 0.9 // espera quase toda a div estar visível
+  });
+
+  // Observa diretamente a div onde estão os contadores
+  var counterBlock = document.querySelector('.flex.justify-center');
+  if (counterBlock) {
+    observer.observe(counterBlock);
+  }
 });
 
 /***/ })
