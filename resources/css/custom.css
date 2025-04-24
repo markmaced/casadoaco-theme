@@ -40,3 +40,10 @@ article > *:not(.entry-content),
         }
     }
 }
+a{
+    text-decoration: none !important;
+}
+body{
+    max-width: 100%;
+    overflow-x: hidden;
+}

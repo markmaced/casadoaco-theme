@@ -27,3 +27,21 @@
 @utility aligncenter {
     margin: 0.5rem auto !important;
 }
+
+@utility font-rockstar{
+    font-family: 'Rockstar';
+}
+
+@utility font-noto{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+@utility text-custom-gray{
+    color: #919497;
+}
+@utility text-casadoaco-orange{
+    color: #F7921A;
+}
+@utility bg-casadoaco-orange{
+    background-color: #F7921A;
+}

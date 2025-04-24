@@ -113,3 +113,5 @@ add_filter( 'nav_menu_submenu_css_class', 'tailpress_nav_menu_add_submenu_class'
 $functions_path = get_template_directory() . '/functions/';
 
 require_once($functions_path . 'theme-options.php');
+require_once($functions_path . 'import-table.php');
+require_once($functions_path . 'shortcode-table-products.php');
