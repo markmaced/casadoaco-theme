@@ -9,16 +9,16 @@ function articles_grid()
 
     $query = new WP_Query($args);
 ?>
-    <section class="w-full py-16">
+    <section class="w-full py-16 px-5 md:px-0">
         <div class="max-w-6xl mx-auto">
-            <div class="w-full flex justify-between mb-8">
+            <div class="w-full flex justify-between mb-8 md:gap-0 gap-5">
                 <div class="w-1/2">
                     <div class="flex w-full items-center">
                         <div class="w-[10%]">
                             <img src="<?php echo get_theme_image('rocket.png') ?>">
                         </div>
                         <div class="w-[90%]">
-                            <h2 class="text-xl font-rockstar text-custom-gray">Nossos <span class="text-casadoaco-orange">Artigos</span></h2>
+                            <h2 class="md:text-xl text-base font-rockstar text-custom-gray">Nossos <span class="text-casadoaco-orange">Artigos</span></h2>
                         </div>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ function articles_grid()
             </div>
 
             <?php if ($query->have_posts()) : ?>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <?php while ($query->have_posts()) : $query->the_post(); ?>
                         <div class="w-full">
                             <?php if (has_post_thumbnail()) : ?>

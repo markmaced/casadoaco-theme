@@ -36,7 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 jQuery(document).ready(function ($) {
   var swiper = new Swiper('.swiper', {
     slidesPerView: 3,
-    spaceBetween: 60,
+    spaceBetween: 20,
     breakpoints: {
       768: {
         slidesPerView: 6,
@@ -57,10 +57,38 @@ jQuery(document).ready(function ($) {
       clickable: true
     }
   });
+  var swiperProducts = new Swiper('.swiper-products', {
+    slidesPerView: 2,
+    spaceBetween: 20,
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      }
+    },
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  });
   var counterStarted = false;
-  var observer = new IntersectionObserver(function (entries) {
-    var entry = entries[0];
-    if (entry.isIntersecting && !counterStarted) {
+  function isInViewport(element) {
+    var rect = element[0].getBoundingClientRect();
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+  }
+  function startCounter() {
+    if (counterStarted) return;
+    var $counterBlock = $('.flex.justify-center');
+    if (isInViewport($counterBlock)) {
       counterStarted = true;
       $('.counter').each(function () {
         var $this = $(this);
@@ -102,15 +130,82 @@ jQuery(document).ready(function ($) {
         }
       });
     }
-  }, {
-    threshold: 0.9 // espera quase toda a div estar visível
-  });
-
-  // Observa diretamente a div onde estão os contadores
-  var counterBlock = document.querySelector('.flex.justify-center');
-  if (counterBlock) {
-    observer.observe(counterBlock);
   }
+
+  // Dispara ao carregar e ao rolar a página
+  $(window).on('scroll resize', startCounter);
+  startCounter();
+  $('.openMenu').on('click', function () {
+    $('#mobileMenu').removeClass('-right-100').addClass('right-0');
+  });
+  $('#closeMenu').on('click', function () {
+    $('#mobileMenu').removeClass('right-0').addClass('-right-100');
+  });
+  if (wpurl.isPage == 'cda') {
+    var $header = $('header');
+    var triggerPoint = 350; // pixels para exibir o header
+
+    $header.hide();
+    var isVisible = false;
+    $(window).on('scroll', function () {
+      var scrollTop = $(this).scrollTop();
+      if (scrollTop > triggerPoint) {
+        if (!isVisible) {
+          isVisible = true;
+          $header.stop(true, true).css({
+            display: 'flex',
+            opacity: 0,
+            transform: 'translateY(-20px)'
+          }).animate({
+            opacity: 1
+          }, {
+            duration: 400,
+            step: function step(now, fx) {
+              $(this).css('transform', "translateY(".concat((1 - now) * -20, "px)"));
+            }
+          });
+        }
+      } else {
+        if (isVisible) {
+          isVisible = false;
+          $header.stop(true, true).animate({
+            opacity: 0
+          }, {
+            duration: 400,
+            step: function step(now, fx) {
+              $(this).css('transform', "translateY(".concat((1 - now) * -20, "px)"));
+            },
+            complete: function complete() {
+              $(this).hide();
+            }
+          });
+        }
+      }
+    });
+
+    // Executa uma verificação no carregamento da página
+    $(window).trigger('scroll');
+  }
+  var currentPath = window.location.pathname;
+  $('.menu-item a').each(function () {
+    var linkPath = $(this).attr('href');
+
+    // Verifica se a URL atual começa com o caminho do link
+    if (currentPath === linkPath || linkPath !== '/' && currentPath.startsWith(linkPath)) {
+      $(this).removeClass('text-custom-gray');
+      $(this).addClass('text-black');
+      $(this).addClass('linkActive');
+    }
+  });
+  $(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+    var target = $($.attr(this, 'href'));
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 800);
+    }
+  });
 });
 
 /***/ })

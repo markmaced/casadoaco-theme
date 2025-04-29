@@ -54,8 +54,8 @@ function tailpress_enqueue_scripts() {
 	wp_enqueue_script( 'sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js', array(), '11.0.0', true );
 
 	// Dados para JS
-	wp_localize_script( 'tailpress', 'tailpressData', array(
-		'is_page'   => is_page(),
+	wp_localize_script( 'tailpress', 'wpurl', array(
+		'isPage'   => page_detected(),
 		'admin_url' => admin_url()
 	) );
 }
@@ -127,6 +127,7 @@ $functions_path = get_template_directory() . '/functions/';
 
 require_once($functions_path . 'theme-options.php');
 require_once($functions_path . 'import-table.php');
+require_once($functions_path . 'page-detected.php');
 require_once($functions_path . 'shortcode-table-products.php');
 require_once($functions_path . 'components/products-grid.php');
 require_once($functions_path . 'components/articles-grid.php');

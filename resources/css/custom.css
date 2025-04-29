@@ -44,8 +44,8 @@ a{
     text-decoration: none !important;
 }
 body{
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
 }
 
 .swiper-button-next, .swiper-button-prev{
@@ -53,13 +53,40 @@ body{
 
 }
 .swiper-button-prev{
-    left: 40px !important;
+    left: 50px !important;
 }
 
 .swiper-button-next{
-    right: 100px !important;
+    right: 70px !important;
 }
 .swiper-button-next:after, .swiper-button-prev:after {
     font-size: 36px !important;
     font-weight: 900 !important;
+}
+
+.swiper-products{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.linkActive::before{
+    width: 100%;
+    background: #F7921A;
+    height: 1px;
+    position: absolute;
+    bottom: -5px;
+    content: '';
+}
+
+@media screen and (max-width:968px){
+    .swiper-button-next:after, .swiper-button-prev:after {
+        font-size: 24px !important;
+        font-weight: 900 !important;
+    }
+    .swiper-button-prev{
+        left: 10px !important;
+    }
+    .swiper-button-next{
+        right: 10px !important;
+    }
 }
