@@ -206,6 +206,10 @@ jQuery(document).ready(function ($) {
       }, 800);
     }
   });
+  $(document).on('click', '.row-table-style', function () {
+    $('.row-table-style').removeClass('row-active');
+    $(this).addClass('row-active');
+  });
 });
 
 /***/ })

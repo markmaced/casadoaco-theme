@@ -1,0 +1,18 @@
+{
+    "name": "casadoaco/projeto",
+    "description": "Casa do aço",
+    "autoload": {
+        "psr-4": {
+            "Casadoaco\\Projeto\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcos Macedo",
+            "email": "marcosmacedo.fogao@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.2"
+    }
+}

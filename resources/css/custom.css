@@ -78,6 +78,15 @@ body{
     content: '';
 }
 
+.row-active{
+    background: #F7921A !important;
+    color: #fff;
+}
+
+.row-table-style:hover{
+    background-color: #F7921A !important;
+}
+
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;
