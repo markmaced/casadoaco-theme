@@ -210,6 +210,45 @@ jQuery(document).ready(function ($) {
     $('.row-table-style').removeClass('row-active');
     $(this).addClass('row-active');
   });
+  function filtrarProdutos() {
+    var paged = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+    var form = $('#filtro-produtos');
+    var formData = form.serializeArray();
+    formData.push({
+      name: 'action',
+      value: 'filtrar_produtos_ajax'
+    });
+    formData.push({
+      name: 'paged',
+      value: paged
+    });
+    $.ajax({
+      url: wpurl.admin_url,
+      method: 'POST',
+      data: formData,
+      beforeSend: function beforeSend() {
+        $('#resultProducts').html('<p>Carregando...</p>');
+      },
+      success: function success(response) {
+        $('#resultProducts').html(response);
+      },
+      error: function error() {
+        $('#resultProducts').html('<p>Erro ao carregar produtos.</p>');
+      }
+    });
+  }
+
+  // Ao alterar filtros
+  $('#filtro-produtos').on('change', 'input[type=checkbox]', function () {
+    filtrarProdutos(1);
+  });
+
+  // Paginação dinâmica
+  $(document).on('click', '#paginacao-produtos button', function (e) {
+    e.preventDefault();
+    var paged = $(this).data('paged');
+    filtrarProdutos(paged);
+  });
 });
 
 /***/ })

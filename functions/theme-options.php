@@ -89,3 +89,33 @@ function registrar_taxonomia_produtos_categoria() {
     register_taxonomy('categoria_produto', 'produtos', $args);
 }
 add_action('init', 'registrar_taxonomia_produtos_categoria');
+
+// Função para registrar a taxonomia "Lojas"
+function registrar_taxonomia_lojas() {
+    $labels = array(
+        'name'              => 'Lojas',
+        'singular_name'     => 'Loja',
+        'search_items'      => 'Buscar Lojas',
+        'all_items'         => 'Todas as Lojas',
+        'parent_item'       => 'Loja Pai',
+        'parent_item_colon' => 'Loja Pai:',
+        'edit_item'         => 'Editar Loja',
+        'update_item'       => 'Atualizar Loja',
+        'add_new_item'      => 'Adicionar Nova Loja',
+        'new_item_name'     => 'Nome da Nova Loja',
+        'menu_name'         => 'Lojas',
+    );
+
+    $args = array(
+        'hierarchical'      => false, // false para funcionar como tags
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_rest'      => true, // Habilita no editor de blocos
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'lojas'),
+    );
+
+    register_taxonomy('lojas', 'produtos', $args);
+}
+add_action('init', 'registrar_taxonomia_lojas');

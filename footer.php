@@ -8,8 +8,17 @@
 
 <footer class="w-full pt-10">
 	<?php do_action('tailpress_footer'); ?>
+	<?php
+	$args = array(
+		'post_type' => 'produtos',
+		'posts_per_page' => 6,
+		'paged' => $paged,
+	);
+
+	$query = new WP_Query( $args );
+	?>
 	<div class="max-w-6xl mx-auto flex md:flex-nowrap md:gap-0 flex-wrap md:px-0 px-5">
-		<div class="md:w-3/6 w-1/2 md:mb-0 mb-10">
+		<div class="md:w-2/5 w-1/2 md:mb-0 mb-10">
 			<img src="<?php echo get_theme_image('logo-casadoaco.png') ?>" class="mb-5">
 			<p class="md:text-sm text-xs text-custom-gray md:w-1/2 mb-5">Distribuição e atendimento técnico no RS, SC e
 				PR. Fale com nossa equipe e descubra o material ideal para seu projeto.</p>
@@ -19,28 +28,27 @@
 				<img src="<?php echo get_theme_image('icon-google.png') ?>">
 			</div>
 		</div>
-		<div class="md:w-1/6 w-1/2 md:pl-0 pl-7">
+		<div class="md:w-1/5 w-1/2 md:pl-0 pl-7">
 			<h2 class="font-rockstar text-lg mb-5">Produtos</h2>
-			<ul class="pl-0 md:block flex flex-wrap">
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produto #1</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produto #1</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produto #1</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produto #1</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produto #1</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produto #1</li>
-			</ul>
+			<?php if ($query->have_posts()): ?>
+				<ul class="pl-0 md:block flex flex-wrap">
+					<?php while ($query->have_posts()): $query->the_post(); ?>
+						<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="<?php echo the_permalink()?>"><?php echo the_title()?></a></li>
+					<?php endwhile ?>
+				</ul>
+			<?php endif ?>
 		</div>
-		<div class="md:w-1/6 w-1/2">
+		<div class="md:w-1/5 w-1/2">
 			<h2 class="font-rockstar text-lg mb-5">Casa do aço</h2>
 			<ul class="pl-0">
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Sobre a gente</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Produtos</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Calculadora</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Contato</li>
-				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2">Blog</li>
+				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/">Home</a></li>
+				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/produtos">Produtos</a></li>
+				<!-- <li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/calculadora">Calculadora</a></li> -->
+				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/contato">Contato</a></li>
+				<!-- <li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/blog">Blog</a></li> -->
 			</ul>
 		</div>
-		<div class="md:w-1/6 w-1/2">
+		<div class="md:w-1/5 w-1/2">
 			<h2 class="font-rockstar text-lg mb-5">Contato</h2>
 			<ul class="pl-0">
 				<li class="font-noto text-base flex items-start gap-2 mb-3">
