@@ -1,7 +1,7 @@
 <section class="w-full md:py-16 pt-5 pb-10">
     <div class="max-w-6xl md:flex gap-5 mx-auto">
         <div class="md:w-1/2 w-full md:mb-0 mb-5">
-            <img src="<?php echo get_theme_image('contato.png') ?>" class="w-full md:h-auto h-[116px] object-cover">
+            <img src="<?php echo get_theme_image('contato.png') ?>" class="w-full md:h-auto h-[116px] object-cover animate__animated animate__fadeInLeft">
         </div>
         <div class="md:w-1/2 w-full px-5 md:px-0">
             <h2 class="text-3xl font-rockstar md:w-[70%] leading-6 mb-5">Entre em <span

@@ -235,4 +235,22 @@ jQuery(document).ready(function ($) {
 		const paged = $(this).data('paged');
 		filtrarProdutos(paged);
 	});
+
+	function animateOnScroll() {
+		$('.animate-on-scroll').each(function() {
+		  var elementTop = $(this).offset().top;
+		  var elementBottom = elementTop + $(this).outerHeight();
+		  var viewportTop = $(window).scrollTop();
+		  var viewportBottom = viewportTop + $(window).height();
+	
+		  if (elementBottom > viewportTop && elementTop < viewportBottom) {
+			var animation = $(this).data('animation') || 'animate__fadeInUp';
+			$(this).addClass(animation).addClass('animate__animated');
+			$(this).removeClass('animate-on-scroll'); // remove pra não repetir
+		  }
+		});
+	  }
+	
+	  // dispara no load e no scroll
+	  $(window).on('scroll resize load', animateOnScroll);
 });

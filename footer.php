@@ -42,6 +42,7 @@
 			<h2 class="font-rockstar text-lg mb-5">Casa do aço</h2>
 			<ul class="pl-0">
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/">Home</a></li>
+				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/cda">CDA</a></li>
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/produtos">Produtos</a></li>
 				<!-- <li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/calculadora">Calculadora</a></li> -->
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/contato">Contato</a></li>

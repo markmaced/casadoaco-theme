@@ -23,64 +23,82 @@
 		if (is_page('cda')):
 			$header_class .= 'fixed top-0 left-0 z-50';
 			?>
-			<section class="w-full md:h-screen h-auto flex md:items-end items-center py-20 md:px-0 px-5 bg-cover"
+			<section
+				class="w-full md:h-screen h-auto flex md:items-end items-center py-20 md:px-0 px-5 bg-cover animate__animated animate__fadeIn"
 				style="background-image: url(<?php echo get_theme_image('hero-cda.jpg') ?>);">
 				<div class="max-w-6xl mx-auto flex flex-col justify-center">
 					<h1
-						class="md:w-2/5 mx-auto text-casadoaco-orange font-rockstar md:text-6xl text-3xl md:text-center md:mb-0 mb-5 text-center">
-						Tubos técnicos
-						para projetos de alta exigência</h1>
-					<h2 class="text-white text-base font-noto md:w-2/5 md:text-center mx-auto md:mb-0 mb-5 text-center">
-						Precisão, acabamento e
-						matéria-prima certificada para quem não pode errar.</h2>
+						class="md:w-2/5 mx-auto text-casadoaco-orange font-rockstar md:text-6xl text-3xl md:text-center md:mb-0 mb-5 text-center animate__animated animate__fadeInUp animate__delay-1s">
+						Tubos técnicos para projetos de alta exigência
+					</h1>
+					<h2
+						class="text-white text-base font-noto md:w-2/5 md:text-center mx-auto md:mb-0 mb-5 text-center animate__animated animate__fadeInUp animate__delay-2s">
+						Precisão, acabamento e matéria-prima certificada para quem não pode errar.
+					</h2>
 					<a href="#"
-						class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base md:hidden text-center w-2/3 mx-auto">Fale
-						com nosso time</a>
+						class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base md:hidden text-center w-2/3 mx-auto animate__animated animate__fadeInUp animate__delay-1s">
+						Fale com nosso time
+					</a>
 					<div class="w-full md:flex gap-5 mt-32 hidden">
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<div class="relative z-10">
-								<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">Tubos
-									achatados</h3>
-								<p class="text-base text-white font-noto">Leveza e resistência combinadas. Ideal para
-									estruturas que exigem estética e performance.</p>
-							</div>
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							<a href="/categoria-produto/tubos-achatados">
+								<div class="relative z-10">
+									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
+										Tubos achatados
+									</h3>
+									<p class="text-base text-white font-noto">Leveza e resistência combinadas. Ideal para
+										estruturas que exigem estética e performance.</p>
+								</div>
+							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<div class="relative z-10">
-								<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">Tubos
-									redondos</h3>
-								<p class="text-base text-white font-noto">Versatilidade para aplicações industriais e
-									hidráulicas. Produzidos com alto padrão de precisão dimensional.</p>
-							</div>
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							<a href="/categoria-produto/tubos-redondos">
+								<div class="relative z-10">
+									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
+										Tubos redondos
+									</h3>
+									<p class="text-base text-white font-noto">Versatilidade para aplicações industriais e
+										hidráulicas. Produzidos com alto padrão de precisão dimensional.</p>
+								</div>
+							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<div class="relative z-10">
-								<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">Tubos
-									retangulares</h3>
-								<p class="text-base text-white font-noto">Estabilidade e rigidez para estruturas metálicas,
-									maquinários e componentes industriais.</p>
-							</div>
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							<a href="/categoria-produto/tubos-retangulares">
+								<div class="relative z-10">
+									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
+										Tubos retangulares
+									</h3>
+									<p class="text-base text-white font-noto">Estabilidade e rigidez para estruturas
+										metálicas, maquinários e componentes industriais.</p>
+								</div>
+							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<div class="relative z-10">
-								<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">Tubos
-									quadrados</h3>
-								<p class="text-base text-white font-noto">Alta resistência à torção e impactos. Utilizado em
-									obras, suportes e sistemas estruturais.</p>
-							</div>
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							<a href="/categoria-produto/tubos-quadrados">
+								<div class="relative z-10">
+									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
+										Tubos quadrados
+									</h3>
+									<p class="text-base text-white font-noto">Alta resistência à torção e impactos.
+										Utilizado em obras, suportes e sistemas estruturais.</p>
+								</div>
+							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<div class="relative z-10">
-								<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">Tubos
-									trefilados</h3>
-								<p class="text-base text-white font-noto">Acabamento refinado e tolerância exata.
-									Recomendado para projetos com alto nível técnico e visual.</p>
-							</div>
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							<a href="/categoria-produto/tubos-trefilados">
+								<div class="relative z-10">
+									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
+										Tubos trefilados
+									</h3>
+									<p class="text-base text-white font-noto">Acabamento refinado e tolerância exata.
+										Recomendado para projetos com alto nível técnico e visual.</p>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -88,7 +106,7 @@
 			<?php
 		endif;
 		?>
-		<header class="w-full bg-white py-5 md:px-0 px-5 <?php echo $header_class?>">
+		<header class="w-full bg-white py-5 md:px-0 px-5 <?php echo $header_class ?>">
 			<div class="max-w-6xl mx-auto w-full flex items-center">
 				<div class="md:w-1/3 w-2/3">
 					<a href="/">
@@ -136,7 +154,7 @@
 					<img src="<?php echo get_theme_image('logo-casadoaco.png') ?>"
 						class="w-64 mx-auto object-contain mb-10">
 					<ul class="flex p-0 gap-5 flex-col text-center">
-					<li class="menu-item">
+						<li class="menu-item">
 							<a href="/"
 								class="text-custom-gray hover:text-black relative transition-all duration-500 before:transition-all before:duration-500 before:h-0.5 before:absolute before:-bottom-1 hover:before:w-full before:w-0 before:content-[''] before:bg-casadoaco-orange font-noto font-semibold text-lg active:text-black">Home</a>
 						</li>
