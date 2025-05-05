@@ -53,7 +53,7 @@
                     <div class="w-1/2">
                         <div class="flex w-full items-center">
                             <div class="w-[10%]">
-                                <img src="<?php echo get_theme_image(image_name: 'rocket.png') ?>">
+                                <img src="<?php echo get_theme_image( 'rocket.png') ?>">
                             </div>
                             <div class="w-[90%]">
                                 <h2 class="md:text-xl text-base font-rockstar text-custom-gray">Nossos <span

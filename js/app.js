@@ -80,61 +80,37 @@ jQuery(document).ready(function ($) {
       clickable: true
     }
   });
-  var counterStarted = false;
-  function isInViewport(element) {
-    var rect = element[0].getBoundingClientRect();
-    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+  function startCounter(counter) {
+    var $counter = $(counter);
+    var target = parseInt($counter.attr("data-target"));
+    var count = 0;
+    var increment = Math.ceil(target / 100);
+    var interval = setInterval(function () {
+      count += increment;
+      if (count >= target) {
+        $counter.text(target.toLocaleString('pt-BR') + '+');
+        clearInterval(interval);
+      } else {
+        $counter.text(count.toLocaleString('pt-BR') + '+');
+      }
+    }, 25);
   }
-  function startCounter() {
-    if (counterStarted) return;
-    var $counterBlock = $('.flex.justify-center');
-    if (isInViewport($counterBlock)) {
-      counterStarted = true;
-      $('.counter').each(function () {
-        var $this = $(this);
-        var countTo = parseInt($this.attr('data-count'));
-        if (countTo === 10) {
-          $({
-            countNum: 0
-          }).animate({
-            countNum: countTo
-          }, {
-            duration: 2000,
-            easing: 'swing',
-            step: function step(now) {
-              if (now >= 10) {
-                $this.text('10M');
-              } else {
-                $this.text(Math.floor(now).toLocaleString('pt-BR'));
-              }
-            },
-            complete: function complete() {
-              $this.text('10M');
-            }
-          });
-        } else {
-          $({
-            countNum: 0
-          }).animate({
-            countNum: countTo
-          }, {
-            duration: 2000,
-            easing: 'swing',
-            step: function step(now) {
-              $this.text(Math.floor(now).toLocaleString('pt-BR'));
-            },
-            complete: function complete() {
-              $this.text(countTo.toLocaleString('pt-BR'));
-            }
-          });
-        }
-      });
-    }
+  function checkVisibility() {
+    $(".counter").each(function () {
+      var $this = $(this);
+      var offsetTop = $this.offset().top;
+      var windowHeight = $(window).height();
+      var scrollTop = $(window).scrollTop();
+      if (scrollTop + windowHeight > offsetTop && !$this.hasClass("counting")) {
+        $this.addClass("counting");
+        startCounter(this);
+      }
+    });
   }
-
-  // Dispara ao carregar e ao rolar a página
-  $(window).on('scroll resize', startCounter);
-  startCounter();
+  $(window).on("scroll", function () {
+    checkVisibility();
+  });
+  checkVisibility();
   $('.openMenu').on('click', function () {
     $('#mobileMenu').removeClass('-right-100').addClass('right-0');
   });

@@ -46,69 +46,42 @@ jQuery(document).ready(function ($) {
 		}
 	});
 
-	let counterStarted = false;
+	function startCounter(counter) {
+        let $counter = $(counter);
+        let target = parseInt($counter.attr("data-target"));
+        let count = 0;
+        let increment = Math.ceil(target / 100);
 
-	function isInViewport(element) {
-		const rect = element[0].getBoundingClientRect();
-		return (
-			rect.top >= 0 &&
-			rect.left >= 0 &&
-			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-			rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-		);
-	}
+        let interval = setInterval(() => {
+            count += increment;
+            if (count >= target) {
+                $counter.text(target.toLocaleString('pt-BR') + '+');
+                clearInterval(interval);
+            } else {
+                $counter.text(count.toLocaleString('pt-BR') + '+');
+            }
+        }, 25);
+    }
 
-	function startCounter() {
-		if (counterStarted) return;
+	function checkVisibility() {
+        $(".counter").each(function () {
+            let $this = $(this);
+            let offsetTop = $this.offset().top;
+            let windowHeight = $(window).height();
+            let scrollTop = $(window).scrollTop();
 
-		const $counterBlock = $('.flex.justify-center');
-		if (isInViewport($counterBlock)) {
-			counterStarted = true;
+            if (scrollTop + windowHeight > offsetTop && !$this.hasClass("counting")) {
+                $this.addClass("counting");
+                startCounter(this);
+            }
+        });
+    }
 
-			$('.counter').each(function () {
-				const $this = $(this);
-				const countTo = parseInt($this.attr('data-count'));
+    $(window).on("scroll", function () {
+        checkVisibility();
+    });
 
-				if (countTo === 10) {
-					$({ countNum: 0 }).animate(
-						{ countNum: countTo },
-						{
-							duration: 2000,
-							easing: 'swing',
-							step: function (now) {
-								if (now >= 10) {
-									$this.text('10M');
-								} else {
-									$this.text(Math.floor(now).toLocaleString('pt-BR'));
-								}
-							},
-							complete: function () {
-								$this.text('10M');
-							}
-						}
-					);
-				} else {
-					$({ countNum: 0 }).animate(
-						{ countNum: countTo },
-						{
-							duration: 2000,
-							easing: 'swing',
-							step: function (now) {
-								$this.text(Math.floor(now).toLocaleString('pt-BR'));
-							},
-							complete: function () {
-								$this.text(countTo.toLocaleString('pt-BR'));
-							}
-						}
-					);
-				}
-			});
-		}
-	}
-
-	// Dispara ao carregar e ao rolar a página
-	$(window).on('scroll resize', startCounter);
-	startCounter();
+    checkVisibility();
 
 	$('.openMenu').on('click', function () {
 		$('#mobileMenu').removeClass('-right-100').addClass('right-0')
