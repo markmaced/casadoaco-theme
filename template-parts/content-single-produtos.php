@@ -57,7 +57,7 @@
             <p class="text-black text text-sm mb-5">Normas: <span class="font-bold"><?php echo get_field('normas')?></span></p>
         </div>
         <div class="md:w-1/2 w-full">
-            <img src="<?php echo get_theme_image('office-1.png') ?>">
+            <img src="<?php echo the_post_thumbnail_url('medium'); ?>">
         </div>
     </div>
 </section>
