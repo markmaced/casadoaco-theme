@@ -21,6 +21,8 @@ function render_importador_tabelas()
         $spreadsheet = IOFactory::load($file);
         $sheet = $spreadsheet->getActiveSheet();
 
+        $titulo_tabela = $sheet->getCell('A1')->getFormattedValue();
+
         $table = '<div class="relative overflow-x-auto">';
         $table .= '<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border border-gray-200">';
 
@@ -43,7 +45,6 @@ function render_importador_tabelas()
                 $colIndex = $cell->getColumn();
                 $cellCoord = $colIndex . $rowIndex;
 
-                // Pula células que estão dentro de mesclagens
                 if (in_array($cellCoord, $skipCells)) {
                     continue;
                 }
@@ -51,7 +52,6 @@ function render_importador_tabelas()
                 $value = $cell->getFormattedValue();
                 $attributes = ' class="border px-6 py-3 group-hover:text-white"';
 
-                // Verifica se a célula está mesclada
                 $colspan = 1;
                 $rowspan = 1;
                 foreach ($mergedCells as $mergeRange) {
@@ -62,7 +62,6 @@ function render_importador_tabelas()
                         $colspan = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($endCell[0]) - \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($startCell[0]) + 1;
                         $rowspan = $endCell[1] - $startCell[1] + 1;
 
-                        // Marca as células internas como "puladas"
                         for ($r = $startCell[1]; $r <= $endCell[1]; $r++) {
                             for ($c = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($startCell[0]); $c <= \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($endCell[0]); $c++) {
                                 $coord = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($c) . $r;
@@ -80,7 +79,6 @@ function render_importador_tabelas()
                 if ($rowspan > 1)
                     $attributes .= ' rowspan="' . $rowspan . '"';
 
-                // Cabeçalhos presumidos na primeira linha
                 if ($rowIndex == 1) {
                     $table .= '<th scope="col" style="background-color:#f1f1f1;"' . $attributes . '>' . esc_html($value) . '</th>';
                 } else {
@@ -93,9 +91,9 @@ function render_importador_tabelas()
 
         $table .= '</table></div>';
 
-        // Cria o post
+        // Cria o post com o título da célula A1
         $post_id = wp_insert_post([
-            'post_title' => 'Tabela Importada Temporária',
+            'post_title' => $titulo_tabela ?: 'Tabela Importada',
             'post_type' => 'tabelas',
             'post_status' => 'publish',
             'post_content' => $table,
@@ -105,7 +103,7 @@ function render_importador_tabelas()
             $shortcode = '[tabela_produto id="' . $post_id . '"]';
             wp_update_post([
                 'ID' => $post_id,
-                'post_title' => 'Tabela ' . $shortcode . ' ' . current_time('Y-m-d H:i:s'),
+                'post_title' => $titulo_tabela . ' ' . $shortcode,
             ]);
             echo '<div class="notice notice-success"><p>Tabela importada com sucesso! Use o shortcode: <code>' . $shortcode . '</code></p></div>';
         }
