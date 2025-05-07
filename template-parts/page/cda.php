@@ -29,7 +29,7 @@
       <img src="<?php echo get_theme_image('cda-2.png') ?>"
         class="md:w-full w-[312px] md:relative absolute h-[400px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -left-3">
     </div>
-    <div class="md:w-1/2 w-3/5 md:px-0 px-5 animate__animated animate__fadeInRight animate__delay-2s">
+    <div class="md:w-1/2 w-3/5 md:px-0 px-5 md:animate__animated md:animate__fadeInRight md:animate__delay-2s">
       <div class="flex w-full items-center mb-5">
         <div class="w-[10%]">
           <img src="<?php echo get_theme_image('rocket.png') ?>">

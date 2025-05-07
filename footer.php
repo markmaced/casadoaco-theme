@@ -18,7 +18,7 @@
 	$query = new WP_Query( $args );
 	?>
 	<div class="max-w-6xl mx-auto flex md:flex-nowrap md:gap-0 flex-wrap md:px-0 px-5">
-		<div class="md:w-2/5 w-1/2 md:mb-0 mb-10">
+		<div class="md:w-2/5 w-full md:mb-0 mb-10">
 			<img src="<?php echo get_theme_image('logo-casadoaco.png') ?>" class="mb-5">
 			<p class="md:text-sm text-xs text-custom-gray md:w-1/2 mb-5">Distribuição e atendimento técnico no RS, SC e
 				PR. Fale com nossa equipe e descubra o material ideal para seu projeto.</p>
@@ -28,7 +28,7 @@
 				<img src="<?php echo get_theme_image('icon-google.png') ?>">
 			</div>
 		</div>
-		<div class="md:w-1/5 w-1/2 md:pl-0 pl-7">
+		<div class="md:w-1/5 w-1/2 md:pl-0 pl-7 md:block hidden">
 			<h2 class="font-rockstar text-lg mb-5">Produtos</h2>
 			<?php if ($query->have_posts()): ?>
 				<ul class="pl-0 md:block flex flex-wrap">
