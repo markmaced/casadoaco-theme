@@ -37,8 +37,10 @@
             }
             ?>
             <div class="text-custom-gray font-noto mb-5"><?php echo the_content() ?></div>
-            <p class="text-black text text-sm mb-5">Formato: <span
-                    class="font-bold"><?php echo get_field('formato') ?></span></p>
+            <?php if (get_field('formato')): ?>
+                <p class="text-black text text-sm mb-5">Formato: <span
+                        class="font-bold"><?php echo get_field('formato') ?></span></p>
+            <?php endif ?>
             <?php if (have_rows('acabamentos')): ?>
                 <div class="w-full flex gap-1 mb-8">
                     <div class="w-auto">
@@ -54,7 +56,10 @@
                     </div>
                 </div>
             <?php endif; ?>
-            <p class="text-black text text-sm mb-5">Normas: <span class="font-bold"><?php echo get_field('normas')?></span></p>
+            <?php if (get_field('normas')): ?>
+                <p class="text-black text text-sm mb-5">Normas: <span
+                        class="font-bold"><?php echo get_field('normas') ?></span></p>
+            <?php endif ?>
         </div>
         <div class="md:w-1/2 w-full">
             <img src="<?php echo the_post_thumbnail_url('medium'); ?>" class="w-full">
@@ -87,7 +92,7 @@ $query = new WP_Query($args);
             <div class="w-1/2">
                 <div class="flex w-full items-center">
                     <div class="w-[10%]">
-                        <img src="<?php echo get_theme_image( 'rocket.png') ?>">
+                        <img src="<?php echo get_theme_image('rocket.png') ?>">
                     </div>
                     <div class="w-[90%]">
                         <h2 class="md:text-xl text-base font-rockstar text-custom-gray">Produtos <span
