@@ -58,9 +58,17 @@
     <div class="w-full animate__animated animate__fadeInUp animate__delay-4s">
       <?php
       $args = array(
-        'post_type' => 'produtos',
+        'post_type'      => 'produtos',
         'posts_per_page' => 4,
-      );
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'lojas',
+                'field'    => 'slug',
+                'terms'    => array('casa-do-aco'),
+                'operator' => 'NOT IN',
+            ),
+        ),
+    );
       $query = new WP_Query($args);
       ?>
       <?php if ($query->have_posts()): ?>

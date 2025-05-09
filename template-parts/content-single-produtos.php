@@ -79,11 +79,31 @@
     </div>
 </section>
 <?php
+// Obtém o ID do post atual
+$current_id = get_the_ID();
+
+// Obtém os termos da taxonomia 'categoria-produto' e 'lojas' do produto atual
+$categorias = wp_get_post_terms($current_id, 'categoria-produto', ['fields' => 'ids']);
+$lojas = wp_get_post_terms($current_id, 'lojas', ['fields' => 'ids']);
+
 $args = array(
     'post_type' => 'produtos',
     'posts_per_page' => 4,
+    'post__not_in' => array($current_id), // Exclui o produto atual
+    'tax_query' => array(
+        'relation' => 'OR', // Relaciona por qualquer uma das taxonomias
+        array(
+            'taxonomy' => 'categoria-produto',
+            'field' => 'term_id',
+            'terms' => $categorias,
+        ),
+        array(
+            'taxonomy' => 'lojas',
+            'field' => 'term_id',
+            'terms' => $lojas,
+        ),
+    ),
 );
-
 $query = new WP_Query($args);
 ?>
 <section class="w-full pb-16 px-5 md:px-0">
@@ -101,7 +121,7 @@ $query = new WP_Query($args);
                 </div>
             </div>
             <div class="w-1/2 flex justify-end items-center">
-                <a href="#" class="font-noto text-sm" style="text-decoration: underline !important;">Ver todos os
+                <a href="/produtos" class="font-noto text-sm" style="text-decoration: underline !important;">Ver todos os
                     produtos</a>
             </div>
         </div>

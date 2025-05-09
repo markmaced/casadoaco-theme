@@ -7,6 +7,17 @@ function products_grid()
         'posts_per_page' => 4,
     );
 
+    if (is_front_page()) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'lojas',
+                'field'    => 'slug',
+                'terms'    => array('cda'),
+                'operator' => 'NOT IN',
+            ),
+        );
+    }
+
     $query = new WP_Query($args);
 ?>
     <section class="w-full py-16 px-5 md:px-0">
@@ -23,7 +34,7 @@ function products_grid()
                     </div>
                 </div>
                 <div class="w-1/2 flex justify-end items-center">
-                    <a href="#" class="font-noto text-sm" style="text-decoration: underline !important;">Ver todos os produtos</a>
+                    <a href="/produtos" class="font-noto text-sm" style="text-decoration: underline !important;">Ver todos os produtos</a>
                 </div>
             </div>
 
