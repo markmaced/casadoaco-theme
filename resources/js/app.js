@@ -47,41 +47,41 @@ jQuery(document).ready(function ($) {
 	});
 
 	function startCounter(counter) {
-        let $counter = $(counter);
-        let target = parseInt($counter.attr("data-target"));
-        let count = 0;
-        let increment = Math.ceil(target / 100);
+		let $counter = $(counter);
+		let target = parseInt($counter.attr("data-target"));
+		let count = 0;
+		let increment = Math.ceil(target / 100);
 
-        let interval = setInterval(() => {
-            count += increment;
-            if (count >= target) {
-                $counter.text(target.toLocaleString('pt-BR') + '+');
-                clearInterval(interval);
-            } else {
-                $counter.text(count.toLocaleString('pt-BR') + '+');
-            }
-        }, 25);
-    }
+		let interval = setInterval(() => {
+			count += increment;
+			if (count >= target) {
+				$counter.text(target.toLocaleString('pt-BR') + '+');
+				clearInterval(interval);
+			} else {
+				$counter.text(count.toLocaleString('pt-BR') + '+');
+			}
+		}, 25);
+	}
 
 	function checkVisibility() {
-        $(".counter").each(function () {
-            let $this = $(this);
-            let offsetTop = $this.offset().top;
-            let windowHeight = $(window).height();
-            let scrollTop = $(window).scrollTop();
+		$(".counter").each(function () {
+			let $this = $(this);
+			let offsetTop = $this.offset().top;
+			let windowHeight = $(window).height();
+			let scrollTop = $(window).scrollTop();
 
-            if (scrollTop + windowHeight > offsetTop && !$this.hasClass("counting")) {
-                $this.addClass("counting");
-                startCounter(this);
-            }
-        });
-    }
+			if (scrollTop + windowHeight > offsetTop && !$this.hasClass("counting")) {
+				$this.addClass("counting");
+				startCounter(this);
+			}
+		});
+	}
 
-    $(window).on("scroll", function () {
-        checkVisibility();
-    });
+	$(window).on("scroll", function () {
+		checkVisibility();
+	});
 
-    checkVisibility();
+	checkVisibility();
 
 	$('.openMenu').on('click', function () {
 		$('#mobileMenu').removeClass('-right-100').addClass('right-0')
@@ -210,20 +210,22 @@ jQuery(document).ready(function ($) {
 	});
 
 	function animateOnScroll() {
-		$('.animate-on-scroll').each(function() {
-		  var elementTop = $(this).offset().top;
-		  var elementBottom = elementTop + $(this).outerHeight();
-		  var viewportTop = $(window).scrollTop();
-		  var viewportBottom = viewportTop + $(window).height();
-	
-		  if (elementBottom > viewportTop && elementTop < viewportBottom) {
-			var animation = $(this).data('animation') || 'animate__fadeInUp';
-			$(this).addClass(animation).addClass('animate__animated');
-			$(this).removeClass('animate-on-scroll'); // remove pra não repetir
-		  }
+		$('.animate-on-scroll').each(function () {
+			var elementTop = $(this).offset().top;
+			var elementBottom = elementTop + $(this).outerHeight();
+			var viewportTop = $(window).scrollTop();
+			var viewportBottom = viewportTop + $(window).height();
+
+			if (elementBottom > viewportTop && elementTop < viewportBottom) {
+				var animation = $(this).data('animation') || 'animate__fadeInUp';
+				$(this).addClass(animation).addClass('animate__animated');
+				$(this).removeClass('animate-on-scroll'); // remove pra não repetir
+			}
 		});
-	  }
-	
-	  // dispara no load e no scroll
-	  $(window).on('scroll resize load', animateOnScroll);
+	}
+
+	// dispara no load e no scroll
+	$(window).on('scroll resize load', animateOnScroll);
+
+	AOS.init();
 });

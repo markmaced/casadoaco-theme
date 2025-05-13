@@ -241,6 +241,7 @@ jQuery(document).ready(function ($) {
 
   // dispara no load e no scroll
   $(window).on('scroll resize load', animateOnScroll);
+  AOS.init();
 });
 
 /***/ })

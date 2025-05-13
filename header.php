@@ -24,24 +24,24 @@
 			$header_class .= 'fixed top-0 left-0 z-50';
 			?>
 			<section
-				class="w-full md:h-screen h-auto flex md:items-end items-center py-20 md:px-0 px-5 bg-cover animate__animated animate__fadeIn"
+				class="w-full md:h-screen h-auto flex md:items-end items-center py-20 md:px-0 px-5 bg-cover"
 				style="background-image: url(<?php echo get_theme_image('hero-cda.jpg') ?>);">
-				<div class="max-w-6xl mx-auto flex flex-col justify-center">
+				<div class="max-w-6xl mx-auto flex flex-col justify-center" data-aos="fade-down">
 					<h1
-						class="md:w-2/5 mx-auto text-casadoaco-orange font-rockstar md:text-6xl text-3xl md:text-center md:mb-0 mb-5 text-center animate__animated animate__fadeInUp animate__delay-1s">
+						class="md:w-2/5 mx-auto text-casadoaco-orange font-rockstar md:text-6xl text-3xl md:text-center md:mb-0 mb-5 text-center">
 						Tubos técnicos para projetos de alta exigência
 					</h1>
 					<h2
-						class="text-white text-base font-noto md:w-2/5 md:text-center mx-auto md:mb-0 mb-5 text-center animate__animated animate__fadeInUp animate__delay-2s">
+						class="text-white text-base font-noto md:w-2/5 md:text-center mx-auto md:mb-0 mb-5 text-center">
 						Precisão, acabamento e matéria-prima certificada para quem não pode errar.
 					</h2>
 					<a href="#"
-						class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base md:hidden text-center w-2/3 mx-auto animate__animated animate__fadeInUp animate__delay-1s">
+						class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base md:hidden text-center w-2/3 mx-auto">
 						Fale com nosso time
 					</a>
 					<div class="w-full md:flex gap-5 mt-32 hidden">
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
 							<a href="/categoria-produto/tubos-achatados">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
@@ -53,7 +53,7 @@
 							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
 							<a href="/categoria-produto/tubos-redondos">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
@@ -65,7 +65,7 @@
 							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
 							<a href="/categoria-produto/tubos-retangulares">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
@@ -77,7 +77,7 @@
 							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
 							<a href="/categoria-produto/tubos-quadrados">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
@@ -89,7 +89,7 @@
 							</a>
 						</div>
 						<div
-							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px] animate__animated animate__fadeInLeft animate__delay-2s">
+							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
 							<a href="/categoria-produto/tubos-trefilados">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">

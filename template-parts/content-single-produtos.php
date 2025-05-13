@@ -61,7 +61,7 @@
                         class="font-bold"><?php echo get_field('normas') ?></span></p>
             <?php endif ?>
         </div>
-        <div class="md:w-1/2 w-full">
+        <div class="md:w-1/2 w-full" data-aos="fade-left">
             <img src="<?php echo the_post_thumbnail_url('medium'); ?>" class="w-full">
         </div>
     </div>
