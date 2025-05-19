@@ -132,6 +132,7 @@ require_once($functions_path . 'theme-options.php');
 require_once($functions_path . 'import-table.php');
 require_once($functions_path . 'page-detected.php');
 require_once($functions_path . 'filter-products.php');
+require_once($functions_path . 'more-posts.php');
 require_once($functions_path . 'shortcode-table-products.php');
 require_once($functions_path . 'components/products-grid.php');
 require_once($functions_path . 'components/articles-grid.php');

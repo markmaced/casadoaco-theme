@@ -28,23 +28,32 @@
     margin: 0.5rem auto !important;
 }
 
-@utility font-rockstar{
+@utility font-rockstar {
     font-family: 'Rockstar';
 }
 
-@utility font-noto{
+@utility font-noto {
     font-family: 'Noto Sans', sans-serif;
 }
 
-@utility text-custom-gray{
+@utility text-custom-gray {
     color: #919497;
 }
-@utility text-casadoaco-orange{
+
+@utility text-casadoaco-orange {
     color: #F7921A;
 }
-@utility bg-casadoaco-orange{
+
+@utility bg-casadoaco-orange {
     background-color: #F7921A;
 }
-@utility text-wave{
+
+@utility text-wave {
     color: #eb0071;
+}
+
+@utility shadow-share {
+    --tw-shadow: 0px 4px 10px #00000029;
+    --tw-shadow-colored: 0px 4px 10px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }

@@ -228,4 +228,59 @@ jQuery(document).ready(function ($) {
 	$(window).on('scroll resize load', animateOnScroll);
 
 	AOS.init();
+
+	// $('#load-more').on('click', function () {
+	//     var button = $(this);
+	//     var offset = parseInt(button.attr('data-offset'));
+
+	//     $.ajax({
+	//         url: wpurl.admin_url,
+	//         type: 'POST',
+	//         data: {
+	//             action: 'load_more_posts',
+	//             offset: offset
+	//         },
+	//         beforeSend: function () {
+	//             button.text('Carregando...');
+	//         },
+	//         success: function (response) {
+	//             if (response.trim() === 'no_more') {
+	//                 button.remove(); // Remove botão se não houver mais posts
+	//             } else {
+	//                 $('#old-posts').append(response); // Adiciona os novos posts
+	//                 offset += 6;
+	//                 button.attr('data-offset', offset);
+	//                 button.text('Carregar mais');
+	//             }
+	//         }
+	//     });
+	// });
+
+	$('.share-copy').on('click', function () {
+		var postLink = $('input[name="siteUrl"]').val();
+		var tempInput = $("<input>");
+		$("body").append(tempInput);
+		tempInput.val(postLink).select();
+		document.execCommand("copy");
+		tempInput.remove();
+		alert("Link copiado");
+	});
+	$(document).on('click', function (event) {
+		if (!$(event.target).closest('.share-content-top').length && !$(event.target).hasClass('open-share-yop')) {
+			$('.share-content-top').css('display', 'none');
+		}
+	});
+	$(document).on('click', function (event) {
+		if (!$(event.target).closest('.share-content-bottom').length && !$(event.target).hasClass('open-share-bottom')) {
+			$('.share-content-bottom').css('display', 'none');
+		}
+	});
+	$('.open-share-yop').on('click', function (event) {
+		event.stopPropagation();
+		$('.share-content-top').css('display', 'flex');
+	});
+	$('.open-share-bottom').on('click', function (event) {
+		event.stopPropagation();
+		$('.share-content-bottom').css('display', 'flex');
+	});
 });

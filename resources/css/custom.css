@@ -102,6 +102,21 @@ span.page-numbers.current {
     border-radius: 8px;
 }
 
+.share-content-bottom::before
+ {
+    content: '';
+    display: inline-block;
+    margin-left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #fff;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+}
+
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;
