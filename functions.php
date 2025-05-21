@@ -49,12 +49,14 @@ function tailpress_enqueue_scripts() {
 	wp_enqueue_style( 'sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css', array(), '11.0.0' );
 	wp_enqueue_style('animation-css' , 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 	wp_enqueue_style('aos-css' , 'https://unpkg.com/aos@2.3.1/dist/aos.css');
+	wp_enqueue_style('material-tailwind' , 'https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css');
 
 	// Scripts
 	wp_enqueue_script( 'tailpress', tailpress_asset( 'js/app.js' ), array('jquery'), $theme->get( 'Version' ), true );
 	wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true );
 	wp_enqueue_script( 'sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js', array(), '11.0.0', true );
 	wp_enqueue_script('aos-js' , 'https://unpkg.com/aos@2.3.1/dist/aos.js');
+	wp_enqueue_script('material-tailwind-js' , 'https://unpkg.com/@material-tailwind/html@latest/scripts/script-name.js');
 
 	// Dados para JS
 	wp_localize_script( 'tailpress', 'wpurl', array(
@@ -133,7 +135,10 @@ require_once($functions_path . 'import-table.php');
 require_once($functions_path . 'page-detected.php');
 require_once($functions_path . 'filter-products.php');
 require_once($functions_path . 'more-posts.php');
+require_once($functions_path . 'calculator-filter.php');
+require_once($functions_path . 'calculator-fields.php');
 require_once($functions_path . 'shortcode-table-products.php');
+require_once($functions_path . 'cart.php');
 require_once($functions_path . 'components/products-grid.php');
 require_once($functions_path . 'components/articles-grid.php');
 require_once($functions_path . 'components/calculator-cta.php');

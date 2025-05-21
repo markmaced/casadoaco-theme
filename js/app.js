@@ -297,6 +297,244 @@ jQuery(document).ready(function ($) {
     event.stopPropagation();
     $('.share-content-bottom').css('display', 'flex');
   });
+  $('.cat-calc-btn').on('click', function () {
+    var termId = $(this).data('calc-id');
+    $('.cat-calc-btn').removeClass('activeCalc');
+    $(this).addClass('activeCalc');
+    limpaTxt();
+    var idValue = $(this).attr('id');
+    $('#material').val(idValue);
+    $.ajax({
+      url: wpurl.admin_url,
+      type: 'POST',
+      data: {
+        action: 'filtrar_calculadoras',
+        categoria_id: termId
+      },
+      beforeSend: function beforeSend() {
+        $('#calcOptions').html('<p>Carregando...</p>');
+      },
+      success: function success(response) {
+        $('#calcOptions').html(response);
+      },
+      error: function error() {
+        $('#calcOptions').html('<p>Erro ao carregar calculadoras.</p>');
+      }
+    });
+  });
+  $('.cat-calc-btn').eq(0).trigger('click');
+  $(document).on('click', '[data-option-id]', function () {
+    var postId = $(this).data('option-id');
+    $('[data-option-id]').removeClass('buttonActive');
+    $(this).addClass('buttonActive');
+    var idValue = $(this).attr('id');
+    $('#formato').val(idValue);
+    $.ajax({
+      url: wpurl.admin_url,
+      type: 'POST',
+      data: {
+        action: 'carregar_campos_calculadora',
+        post_id: postId
+      },
+      beforeSend: function beforeSend() {
+        $('#optionsFields').html('<p>Carregando campos...</p>');
+      },
+      success: function success(response) {
+        $('#optionsFields').html(response);
+      },
+      error: function error() {
+        $('#optionsFields').html('<p>Erro ao carregar os campos.</p>');
+      }
+    });
+  });
+  function volume(formato, a, b, c, d) {
+    if (a) {
+      a = a * 1;
+    }
+    if (b) {
+      b = b * 1;
+    }
+    if (c) {
+      c = c * 1;
+    }
+    if (d) {
+      d = d * 1;
+    }
+    switch (formato) {
+      case "barra-quadrada":
+        return a * a / 1000;
+      case "barra-retangular":
+        return a * b / 1000;
+      case "barra-chata":
+        return a * b / 1000;
+      case "bobina":
+        return a * b / 1000;
+      case "chapa":
+        return a * b * c / 1000000;
+      case "barra-xadrez":
+        return a * b * c / 1000000 * 1.1;
+      case "tarugo":
+        if (a) {
+          return (a + 1.58) * (a + 1.58) * 0.7854 / 2000;
+        } else {
+          return 0;
+        }
+      case "barra-redonda":
+        return a * a * 0.7854 / 1000;
+      case "barra-hexagonal":
+        return a * a * 0.866 / 1000;
+      case "bucha":
+        a = (a + 1.58) * (a + 1.58);
+        b = (b - 1.58) * (b - 1.58);
+        return (a - b) * 0.003534;
+      case "tubo-redondo":
+      case "tubo-schedule":
+      case "tubo-refrigeracao":
+        return (b - a) * a * 3.1416 / 1000;
+      case "tubo-quadrado":
+        return (2 * b - 2 * a) * 2 * a / 1000;
+      case "tubo-retangular":
+        return (b + c - 2 * a) * 2 * a / 1000;
+      case "perfil-l":
+      case "perfil-t":
+        return (2 * b * a - a * a) / 1000;
+      case "perfil-u":
+        return (3 * b * a - 2 * a * a) / 1000;
+      case "perfil-u-desigual":
+        return (b + c + d) * a / 1000;
+      case "vergalhao-quadrado":
+        return a * a / 1000;
+      case "vergalhao-redondo":
+        return a * a * 0.7854 / 1000;
+      case "vergalhao-sextavado":
+        return a * a * 0.866 / 1000;
+    }
+  }
+  function peso(material, formato, a, b, c, d) {
+    var materiais = new Array();
+    materiais.aluminio = 2.75;
+    materiais.cobre = 9;
+    materiais.latao = 8.7;
+    materiais.bronze = 9;
+    materiais.acoinox = 8;
+    materiais.acocarbono = 8;
+    var vol = 0;
+    var peso = 0;
+    vol = volume(formato, a, b, c, d);
+    if (formato == "bucha") {
+      peso = vol;
+    } else {
+      peso = vol * materiais[material];
+    }
+    console.log("vol " + vol);
+    console.log("Peso " + peso);
+    return peso;
+  }
+  function toNumber(number) {
+    if (typeof number !== 'string') number = String(number || '');
+    number = number.replace(/,/, ".");
+    number = number.replace(/[^0-9\.]*/, "");
+    return number;
+  }
+  function limpaTxt() {
+    $("#txta").val("");
+    $("#txtb").val("");
+    $("#txtc").val("");
+    $("#txtd").val("");
+    $("#resultado").val("");
+  }
+  $(document).on('keyup', 'input', function () {
+    $(this).change();
+  });
+  $(document).on('change', 'input', function () {
+    // console.log($("#txta").val())
+    if (!$("#material").val() || !$("#formato").val()) {
+      return !1;
+    }
+    var pesoVal = 0,
+      unidade = "g";
+    pesoVal = peso($("#material").val(), $("#formato").val(), toNumber($("#txta").val()), toNumber($("#txtb").val()), toNumber($("#txtc").val()), toNumber($("#txtd").val()));
+
+    // console.log(pesoVal)
+
+    if (pesoVal > 0) {
+      unidade = "kg";
+      if (pesoVal >= 1000) {
+        pesoVal /= 1000;
+        unidade = "t";
+      }
+      $("#resultado").val(Math.round(pesoVal * 1000) / 1000 + unidade);
+    } else {
+      $("#resultado").val("");
+    }
+  });
+  var cart = JSON.parse(localStorage.getItem('cart')) || [];
+  $(document).on('click', '#addToCart', function () {
+    var activeBtn = $('.activeCalc');
+    var activeFormat = $('.buttonActive');
+    var activeBtnText = activeBtn.text();
+    var activeFormatText = activeFormat.text().trim();
+    var labela = $('#txta').attr('placeholder');
+    var labelb = $('#txtb').attr('placeholder');
+    var labelc = $('#txtc').attr('placeholder');
+    var labeld = $('#txtd').attr('placeholder');
+    var labelResult = $('label[for="resultado"]').text();
+    var txta = $('#txta').val();
+    var txtb = $('#txtb').val();
+    var txtc = $('#txtc').val();
+    var txtd = $('#txtd').val();
+    var resultado = $('#resultado').val();
+    var product = {
+      material: activeBtnText,
+      formato: activeFormatText,
+      medidas: {
+        txta: {
+          label: labela,
+          value: txta
+        },
+        txtb: {
+          label: labelb,
+          value: txtb
+        },
+        txtc: {
+          label: labelc,
+          value: txtc
+        },
+        txtd: {
+          label: labeld,
+          value: txtd
+        },
+        resultado: {
+          label: labelResult,
+          value: resultado
+        }
+      }
+    };
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    $.ajax({
+      url: wpurl.admin_url,
+      type: 'POST',
+      data: {
+        cart: cart
+      },
+      success: function success(response) {
+        $('#cartSession').html(response);
+      },
+      error: function error() {
+        console.error('Erro ao enviar o carrinho');
+      }
+    });
+    $('.modal-cart').removeClass('hidden').addClass('flex');
+  });
+  $(document).on('click', '#closeCart', function () {
+    $('.modal-cart').removeClass('flex').addClass('hidden');
+  });
+  $(document).on('click', '.modal-cart', function (e) {
+    if ($(e.target).is('.modal-cart')) {
+      $('.modal-cart').removeClass('flex').addClass('hidden');
+    }
+  });
 });
 
 /***/ })

@@ -119,3 +119,65 @@ function registrar_taxonomia_lojas() {
     register_taxonomy('lojas', 'produtos', $args);
 }
 add_action('init', 'registrar_taxonomia_lojas');
+
+// CPT Calculadora
+function cadastrar_cpt_calculadora() {
+    $labels = array(
+        'name'                  => 'Calculadora',
+        'singular_name'         => 'Calculadora',
+        'menu_name'             => 'Calculadora',
+        'name_admin_bar'        => 'Calculadora',
+        'add_new'               => 'Adicionar nova',
+        'add_new_item'          => 'Adicionar nova calculadora',
+        'new_item'              => 'Nova calculadora',
+        'edit_item'             => 'Editar calculadora',
+        'view_item'             => 'Ver calculadora',
+        'all_items'             => 'Todas as calculadoras',
+        'search_items'          => 'Buscar calculadora',
+        'parent_item_colon'     => 'Calculadora pai:',
+        'not_found'             => 'Nenhuma calculadora encontrada.',
+        'not_found_in_trash'    => 'Nenhuma calculadora encontrada na lixeira.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'rewrite'            => array('slug' => 'calculator'),
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'show_in_rest'       => true,
+        'menu_icon'          => 'dashicons-calculator',
+    );
+
+    register_post_type('calculadora', $args);
+}
+add_action('init', 'cadastrar_cpt_calculadora');
+
+// Taxonomia Categoria da Calculadora
+function cadastrar_taxonomia_calculadora_categoria() {
+    $labels = array(
+        'name'              => 'Categorias',
+        'singular_name'     => 'Categoria',
+        'search_items'      => 'Buscar categorias',
+        'all_items'         => 'Todas as categorias',
+        'parent_item'       => 'Categoria pai',
+        'parent_item_colon' => 'Categoria pai:',
+        'edit_item'         => 'Editar categoria',
+        'update_item'       => 'Atualizar categoria',
+        'add_new_item'      => 'Adicionar nova categoria',
+        'new_item_name'     => 'Nome da nova categoria',
+        'menu_name'         => 'Categorias',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_in_rest'      => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'rewrite'           => array('slug' => 'categoria-calculadora'),
+    );
+
+    register_taxonomy('categoria_calculadora', array('calculadora'), $args);
+}
+add_action('init', 'cadastrar_taxonomia_calculadora_categoria');
