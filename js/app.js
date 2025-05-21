@@ -381,7 +381,7 @@ jQuery(document).ready(function ($) {
         }
       case "barra-redonda":
         return a * a * 0.7854 / 1000;
-      case "barra-hexagonal":
+      case "barra-sextavada":
         return a * a * 0.866 / 1000;
       case "bucha":
         a = (a + 1.58) * (a + 1.58);
@@ -484,7 +484,12 @@ jQuery(document).ready(function ($) {
     var txtc = $('#txtc').val();
     var txtd = $('#txtd').val();
     var resultado = $('#resultado').val();
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    var lastCartId = parseInt(localStorage.getItem('lastCartId')) || 0;
+    var cartId = lastCartId + 1;
+    localStorage.setItem('lastCartId', cartId);
     var product = {
+      cartId: cartId,
       material: activeBtnText,
       formato: activeFormatText,
       medidas: {
@@ -508,26 +513,44 @@ jQuery(document).ready(function ($) {
           label: labelResult,
           value: resultado
         }
-      }
+      },
+      quantidade: 1
     };
-    cart.push(product);
+    var found = false;
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].material === product.material && cart[i].formato === product.formato && cart[i].medidas.txta.value === product.medidas.txta.value && cart[i].medidas.txtb.value === product.medidas.txtb.value && cart[i].medidas.txtc.value === product.medidas.txtc.value && cart[i].medidas.txtd.value === product.medidas.txtd.value && cart[i].medidas.resultado.value === product.medidas.resultado.value) {
+        cart[i].quantidade += 1;
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      cart.push(product);
+    }
     localStorage.setItem('cart', JSON.stringify(cart));
+    addToCart(cart);
+    $('.modal-cart').removeClass('hidden').addClass('flex');
+  });
+  function addToCart(cartObject) {
     $.ajax({
       url: wpurl.admin_url,
       type: 'POST',
       data: {
-        cart: cart
+        action: 'enviar_carrinho',
+        cart: JSON.stringify(cartObject)
       },
       success: function success(response) {
         $('#cartSession').html(response);
       },
-      error: function error() {
-        console.error('Erro ao enviar o carrinho');
+      error: function error(xhr, status, _error) {
+        console.error('Erro ao enviar o carrinho:', status, _error);
       }
     });
-    $('.modal-cart').removeClass('hidden').addClass('flex');
-  });
+  }
   $(document).on('click', '#closeCart', function () {
+    $('.modal-cart').removeClass('flex').addClass('hidden');
+  });
+  $(document).on('click', '.closeModal', function () {
     $('.modal-cart').removeClass('flex').addClass('hidden');
   });
   $(document).on('click', '.modal-cart', function (e) {
@@ -535,6 +558,41 @@ jQuery(document).ready(function ($) {
       $('.modal-cart').removeClass('flex').addClass('hidden');
     }
   });
+  $(document).on('click', '.openModal', function () {
+    $('.modal-cart').removeClass('hidden').addClass('flex');
+    addToCart(JSON.parse(localStorage.getItem('cart')));
+  });
+  if (cart != '') {
+    $('#cartIcon').html('<div class="fixed right-10 bottom-10 rounded-full p-3 openModal cursor-pointer shadow-btn bg-white transition-all duration-500 hover:bg-casadoaco-orange"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-6"></div>');
+  }
+  $(document).on('click', '.increase-qty', function () {
+    var input = $(this).siblings('#qtd');
+    var currentVal = parseInt(input.text());
+    var newVal = currentVal + 1;
+    input.text(newVal);
+    var cartId = $(this).data('cartid');
+    updateLocalStorage(cartId, newVal);
+  });
+  $(document).on('click', '.decrease-qty', function () {
+    var input = $(this).siblings('#qtd');
+    var currentVal = parseInt(input.text());
+    if (currentVal > 1) {
+      var newVal = currentVal - 1;
+      input.text(newVal);
+      var cartId = $(this).data('cartid');
+      updateLocalStorage(cartId, newVal);
+    }
+  });
+  function updateLocalStorage(cartId, novaQuantidade) {
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.map(function (produto) {
+      if (produto.cartId === cartId) {
+        produto.quantidade = novaQuantidade;
+      }
+      return produto;
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 });
 
 /***/ })

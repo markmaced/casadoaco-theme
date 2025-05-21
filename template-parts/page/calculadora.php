@@ -62,7 +62,7 @@
         <!-- Modal de Carrinho -->
         <div class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 modal-cart">
             <!-- Container -->
-            <div class="bg-white shadow-xl w-full max-w-2xl py-6 rounded-md px-10">
+            <div class="bg-white shadow-xl w-full max-w-2xl py-6 rounded-md px-10 overflow-y-auto max-h-[90%]">
 
                 <!-- Cabeçalho -->
                 <div class="flex justify-between items-center pb-3 mb-4">
@@ -77,7 +77,7 @@
                         <div class="col-span-1 font-noto text-casadoaco-orange text-xs">Qtd</div>
                         <div class="col-span-7 font-noto text-casadoaco-orange text-xs">Produtos</div>
                         <div class="col-span-4 font-noto text-right">
-                            <a href="#" class="text-[10px] text-[#919497] font-normal font-noto">Adicionar mais
+                            <a href="#" class="text-[10px] text-[#919497] font-normal font-noto closeModal">Adicionar mais
                                 produtos</a>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                     <!-- Botão -->
                     <div class="w-full">
                         <button
-                            class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+                            class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300">
                             Confirmar
                         </button>
                     </div>
@@ -116,4 +116,5 @@
             </div>
         </div>
     </div>
+    <div id="cartIcon"></div>
 </section>
