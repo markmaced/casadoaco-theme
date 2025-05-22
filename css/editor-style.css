@@ -1409,14 +1409,29 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .md\:absolute {
+    @media (width >= 782px) {
+      position: absolute;
+    }
+  }
   .md\:relative {
     @media (width >= 782px) {
       position: relative;
     }
   }
+  .md\:inset-y-0 {
+    @media (width >= 782px) {
+      inset-block: calc(var(--spacing) * 0);
+    }
+  }
   .md\:top-0 {
     @media (width >= 782px) {
       top: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:right-0 {
+    @media (width >= 782px) {
+      right: calc(var(--spacing) * 0);
     }
   }
   .md\:left-0 {
@@ -1657,6 +1672,11 @@
   .md\:py-16 {
     @media (width >= 782px) {
       padding-block: calc(var(--spacing) * 16);
+    }
+  }
+  .md\:py-20 {
+    @media (width >= 782px) {
+      padding-block: calc(var(--spacing) * 20);
     }
   }
   .md\:pt-10 {

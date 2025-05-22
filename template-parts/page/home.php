@@ -1,10 +1,10 @@
 <section class="w-full bg-black relative overflow-hidden">
-  <div class="max-w-6xl mx-auto flex items-center relative py-20 z-10 md:min-h-[calc(100vh-96px)]">
-    <div class="md:w-2/5 w-3/5 relative z-10 md:px-0 px-5">
+  <div class="max-w-6xl mx-auto flex md:flex-row flex-col-reverse items-center relative md:py-20 z-10 md:min-h-[calc(100vh-96px)]">
+    <div class="md:w-2/5 w-full relative z-10 md:px-0 px-5 py-10">
       <h1 class="text-casadoaco-orange md:text-6xl text-2xl font-rockstar font-bold mb-8" data-aos="fade-right">
         Mais que aço: compromisso com quem constrói
       </h1>
-      <h2 class="text-white mt-4 text-sm font-noto mb-5 md:block hidden font-bold">
+      <h2 class="text-white mt-4 text-sm font-noto mb-5 md:block font-bold">
         Há mais de uma década fornecendo qualidade, variedade e entrega rápida no Sul do Brasil.
       </h2>
       <p class="text-white mt-4 text-sm font-noto mb-8 md:block hidden">
@@ -26,9 +26,21 @@
         </div>
       </div>
     </div>
+    <div class="md:absolute md:hidden md:inset-y-0 md:right-0 md:w-1/2 w-full animate__animated animate__fadeInRight">
+      <div class=" relative w-full h-full">
+        <!-- Vídeo de fundo -->
+        <video autoplay loop muted playsinline class="md:absolute w-full h-full object-cover z-10">
+          <source src="<?php echo get_template_directory_uri(); ?>/resources/images/hero-video.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo em HTML5.
+        </video>
+
+        <!-- Overlay -->
+        <div class="absolute top-0 left-0 w-full h-full bg-casadoaco-orange opacity-50 z-20"></div>
+      </div>
+    </div>
   </div>
 
-  <div class="absolute inset-y-0 right-0 md:w-1/2 w-2/5 animate__animated animate__fadeInRight">
+  <div class="md:absolute md:block hidden inset-y-0 right-0 md:w-1/2 w-full animate__animated animate__fadeInRight">
     <div class=" relative w-full h-full">
       <!-- Vídeo de fundo -->
       <video autoplay loop muted playsinline class="absolute w-full h-full object-cover z-10">
@@ -101,7 +113,8 @@
         responsabilidade e parceria.
       </p>
       <a href="/contato"
-        class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base transition-all duration-500 hover:bg-black" data-aos="zoom-in-up">
+        class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base transition-all duration-500 hover:bg-black"
+        data-aos="zoom-in-up">
         Fale com nosso time
       </a>
     </div>
