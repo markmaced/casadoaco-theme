@@ -10,7 +10,8 @@ function calculator_cta()
                 <p class="text-sm font-noto text-black">Calcule o peso e o volume dos seus materiais direto no nosso site!</p>
             </div>
             <div class="md:w-1/3 w-full flex justify-end items-center">
-                <button type="button" class="bg-black text-white font-noto py-2 px-5 rounded-md font-bold cursor-no-drop">Em breve</button>
+                <!-- <button type="button" class="bg-black text-white font-noto py-2 px-5 rounded-md font-bold cursor-no-drop">Saiba mais</button> -->
+                <a href="/calculadora" class="bg-black text-white font-noto py-2 px-5 rounded-md font-bold">Saiba mais</a>
             </div>
         </div>
     </section>

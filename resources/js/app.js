@@ -569,7 +569,7 @@ jQuery(document).ready(function ($) {
 		addToCart(JSON.parse(localStorage.getItem('cart')))
 	})
 	if (cart != '') {
-		$('#cartIcon').html('<div class="fixed right-10 bottom-10 rounded-full p-3 openModal cursor-pointer shadow-btn bg-white transition-all duration-500 hover:bg-casadoaco-orange"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-6"></div>')
+		$('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-3 openModal cursor-pointer shadow-btn bg-white transition-all duration-500 hover:bg-casadoaco-orange"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-6"></div>')
 	}
 	$(document).on('click', '.increase-qty', function () {
 		var input = $(this).siblings('#qtd');

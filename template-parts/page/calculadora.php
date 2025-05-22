@@ -145,6 +145,6 @@
             </div>
         </div>
     </div>
-    <div id="cartIcon"></div>
+    <div id="cartIcon" class="z-50"></div>
 </section>
 <?php echo do_shortcode('[products_grid]') ?>
