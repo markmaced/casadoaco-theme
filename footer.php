@@ -44,9 +44,9 @@
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/">Home</a></li>
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/cda">CDA</a></li>
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/produtos">Produtos</a></li>
-				<!-- <li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/calculadora">Calculadora</a></li> -->
+				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/calculadora">Calculadora</a></li>
 				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/contato">Contato</a></li>
-				<!-- <li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/blog">Blog</a></li> -->
+				<li class="font-noto md:text-base text-xs mb-3 md:w-full w-1/2"><a href="/blog">Blog</a></li>
 			</ul>
 		</div>
 		<div class="md:w-1/5 w-1/2">

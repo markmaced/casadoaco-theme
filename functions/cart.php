@@ -10,20 +10,20 @@ function enviar_carrinho()
         foreach ($cart as $index => $product) {
             ?>
             <div class="grid grid-cols-12 items-start gap-2 mb-4">
-                <div class="col-span-1 text-orange-500 font-bold flex items-center gap-1.5">
+                <div class="md:col-span-1 col-span-2 text-orange-500 font-bold flex items-center gap-1.5">
                     <button type="button" class="decrease-qty text-casadoaco-orange cursor-pointer"
                         data-cartid="<?php echo $product['cartId'] ?>">-</button>
                     <p class="text-black font-noto" id="qtd"><?php echo $product['quantidade'] ?></p>
                     <button type="button" class="increase-qty text-casadoaco-orange cursor-pointer"
                         data-cartid="<?php echo $product['cartId'] ?>">+</button>
                 </div>
-                <div class="col-span-11">
+                <div class="md:col-span-11 col-span-10">
                     <div class="flex">
-                        <div class="flex w-[95%] items-center">
-                            <div class="w-[6%]">
-                                <img src="<?php echo get_theme_image('edit.png') ?>">
+                        <div class="flex w-[95%] md:items-center md:gap-0 gap-2">
+                            <div class="w-[6%] md:block hidden">
+                                <img src="<?php echo get_theme_image('edit.png') ?>" class="md:mt-0 mt-1">
                             </div>
-                            <div class="w-[94%]">
+                            <div class="md:w-[94%] w-full">
                                 <p class="font-semibold font-rockstar">
                                     <?php echo $product['formato'] . ' - ' . $product['material'] ?>
                                 </p>

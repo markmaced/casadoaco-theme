@@ -686,6 +686,24 @@ jQuery(document).ready(function ($) {
       }
     });
   });
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+  $(document).on('click', '.cat-calc-btn', function () {
+    if (isMobile()) {
+      $('html, body').animate({
+        scrollTop: $('#calcOptions').offset().top - 50
+      }, 600);
+    }
+  });
+  $(document).on('click', '.formato-btn', function () {
+    if (isMobile()) {
+      // Scroll suave até a seção "Medidas"
+      $('html, body').animate({
+        scrollTop: $('#optionsFields').offset().top - 50
+      }, 600);
+    }
+  });
 });
 
 /***/ })

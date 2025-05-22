@@ -84,10 +84,10 @@
                     $older_posts->the_post(); ?>
                     <div class="flex flex-col gap-6">
                         <div class="bg-white overflow-hidden flex">
-                            <a href="<?php the_permalink(); ?>" class="w-1/3 h-full block">
+                            <a href="<?php the_permalink(); ?>" class="md:w-1/3 w-1/2 h-full block">
                                 <?php the_post_thumbnail('large', ['class' => 'w-full h-[205px] object-cover rounded-md']); ?>
                             </a>
-                            <div class="w-2/3 pl-6 flex flex-col justify-between">
+                            <div class="md:w-2/3 w-1/2 pl-6 flex flex-col justify-between">
                                 <div>
                                     <p class="font-noto font-normal text-xs text-[#8F8F8F] mb-1">
                                         <?php echo get_the_date('d/m/Y'); ?>
