@@ -139,6 +139,7 @@ require_once($functions_path . 'calculator-fields.php');
 require_once($functions_path . 'shortcode-table-products.php');
 require_once($functions_path . 'cart.php');
 require_once($functions_path . 'send-quote.php');
+require_once($functions_path . 'import-export-calc.php');
 require_once($functions_path . 'components/products-grid.php');
 require_once($functions_path . 'components/articles-grid.php');
 require_once($functions_path . 'components/calculator-cta.php');
