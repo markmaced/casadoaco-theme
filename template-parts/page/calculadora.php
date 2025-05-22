@@ -65,19 +65,20 @@
             <div class="bg-white shadow-xl w-full max-w-2xl py-6 rounded-md px-10 overflow-y-auto max-h-[90%]">
 
                 <!-- Cabeçalho -->
-                <div class="flex justify-between items-center pb-3 mb-4">
+                <div class="flex justify-between items-center pb-3 mb-4 header-title">
                     <h2 class="text-xl font-bold font-rockstar">Listagem de Produtos</h2>
                     <button class="text-gray-400 hover:text-gray-600 text-xl cursor-pointer"
                         id="closeCart">&times;</button>
                 </div>
 
                 <!-- Tabela de produtos -->
-                <div class="border-b mb-10">
+                <div class="border-b mb-10 product-table">
                     <div class="grid grid-cols-12 font-bold text-sm border-b pb-2 mb-3">
                         <div class="col-span-1 font-noto text-casadoaco-orange text-xs">Qtd</div>
                         <div class="col-span-7 font-noto text-casadoaco-orange text-xs">Produtos</div>
                         <div class="col-span-4 font-noto text-right">
-                            <a href="#" class="text-[10px] text-[#919497] font-normal font-noto closeModal">Adicionar mais
+                            <a href="#" class="text-[10px] text-[#919497] font-normal font-noto closeModal">Adicionar
+                                mais
                                 produtos</a>
                         </div>
                     </div>
@@ -86,32 +87,56 @@
                 </div>
 
                 <!-- Formulário de envio -->
-                <div class="w-full">
-                    <h3 class="text-xl font-bold uppercase mb-2 font-rockstar">Como devemos enviar a proposta para você?
+                <div class="w-full step1">
+                    <h3 class="text-xl font-bold uppercase mb-2 font-rockstar">
+                        Como devemos enviar a proposta para você?
                     </h3>
-                    <p class="text-sm text-gray-600 mb-4 font-noto">Lorem ipsum dolor sit amet consectetur. Laoreet
-                        rhoncus faucibus aliquet faucibus aliquam nibh elementum nunc. Augue aenean egestas Lorem ipsum
-                        dolor sit amet consectetur. Laoreet rhoncus faucibus aliquet faucibus aliquam nibh elementum
-                        nunc. Augue aenean egestas</p>
+                    <p class="text-sm text-gray-600 mb-4 font-noto">
+                        Lorem ipsum dolor sit amet consectetur. Laoreet rhoncus faucibus aliquet faucibus aliquam nibh
+                        elementum nunc. Augue aenean egestas Lorem ipsum dolor sit amet consectetur. Laoreet rhoncus
+                        faucibus aliquet faucibus aliquam nibh elementum nunc. Augue aenean egestas
+                    </p>
 
                     <div class="flex gap-6 mb-6">
                         <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="envio" class="accent-orange-500" checked />
+                            <input type="radio" name="envio" value="email" class="accent-orange-500" checked />
                             <span>Por e-mail</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="radio" name="envio" class="accent-orange-500" />
+                            <input type="radio" name="envio" value="whatsapp" class="accent-orange-500" />
                             <span>Por WhatsApp</span>
                         </label>
                     </div>
 
-                    <!-- Botão -->
                     <div class="w-full">
                         <button
-                            class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+                            class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer next-step">
                             Confirmar
                         </button>
                     </div>
+                </div>
+
+                <div class="w-full step2 hidden">
+                    <h3 class="text-xl font-bold uppercase mb-4 font-rockstar">Digite seus dados</h3>
+                    <input type="text" id="nome" class="block w-full mb-3 p-2 border rounded" placeholder="Nome">
+                    <input type="text" id="empresa" class="block w-full mb-3 p-2 border rounded" placeholder="Empresa">
+                    <input type="text" id="cnpj" class="block w-full mb-3 p-2 border rounded" placeholder="CNPJ">
+                    <input type="text" id="contato" class="block w-full mb-3 p-2 border rounded"
+                        placeholder="E-mail ou WhatsApp">
+                    <button
+                        class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer enviar-proposta">
+                        Enviar Proposta
+                    </button>
+                </div>
+
+                <div class="w-full step3 hidden text-center">
+                    <h3 class="text-2xl font-bold uppercase mb-4 font-rockstar text-black">Obrigado!</h3>
+                    <p class="text-gray-600 font-noto mb-6">Sua proposta foi enviada com sucesso. Em breve entraremos em
+                        contato.</p>
+                    <button
+                        class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition-all duration-500 cursor-pointer closeModal">
+                        Fechar
+                    </button>
                 </div>
             </div>
         </div>

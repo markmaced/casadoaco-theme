@@ -5,24 +5,32 @@ add_action('wp_ajax_nopriv_enviar_carrinho', 'enviar_carrinho');
 function enviar_carrinho()
 {
     if (isset($_POST['cart'])) {
-        $cart = json_decode(stripslashes($_POST['cart']), true); // Decodifica JSON
+        $cart = json_decode(stripslashes($_POST['cart']), true);
 
         foreach ($cart as $index => $product) {
             ?>
             <div class="grid grid-cols-12 items-start gap-2 mb-4">
-                <div class="col-span-1 text-orange-500 font-bold flex items-center gap-1">
-                    <button type="button" class="decrease-qty text-casadoaco-orange cursor-pointer" data-cartid="<?php echo $product['cartId']?>">-</button>
-                    <p class="text-black font-noto" id="qtd"><?php echo $product['quantidade']?></p>
-                    <button type="button" class="increase-qty text-casadoaco-orange cursor-pointer" data-cartid="<?php echo $product['cartId']?>">+</button>
+                <div class="col-span-1 text-orange-500 font-bold flex items-center gap-1.5">
+                    <button type="button" class="decrease-qty text-casadoaco-orange cursor-pointer"
+                        data-cartid="<?php echo $product['cartId'] ?>">-</button>
+                    <p class="text-black font-noto" id="qtd"><?php echo $product['quantidade'] ?></p>
+                    <button type="button" class="increase-qty text-casadoaco-orange cursor-pointer"
+                        data-cartid="<?php echo $product['cartId'] ?>">+</button>
                 </div>
                 <div class="col-span-11">
                     <div class="flex">
-                        <div class="w-[6%]">
-                            <img src="<?php echo get_theme_image('edit.png') ?>">
+                        <div class="flex w-[95%] items-center">
+                            <div class="w-[6%]">
+                                <img src="<?php echo get_theme_image('edit.png') ?>">
+                            </div>
+                            <div class="w-[94%]">
+                                <p class="font-semibold font-rockstar">
+                                    <?php echo $product['formato'] . ' - ' . $product['material'] ?>
+                                </p>
+                            </div>
                         </div>
-                        <div class="w-[94%]">
-                            <p class="font-semibold font-rockstar"><?php echo $product['formato'] . ' - ' . $product['material'] ?>
-                            </p>
+                        <div class="w-[5%] flex justify-end items-center">
+                            <img src="<?php echo get_theme_image('lixeira.png')?>" id="removeItem" class="w-3 h-3 object-cover transition-all duration-500 hover:w-[14px] hover:h-[14px] cursor-pointer" data-cartid="<?php echo $product['cartId'] ?>">
                         </div>
                     </div>
                     <p class="text-sm text-gray-600 font-noto">

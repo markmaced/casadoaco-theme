@@ -27,7 +27,7 @@ function filtrar_calculadoras_callback()
         while ($query->have_posts()) {
             $query->the_post();
             ?>
-            <div id="<?php echo get_post_field('post_name', get_the_ID()); ?>" class="bg-white rounded shadow flex flex-col items-center p-5 cursor-pointer" data-option-id="<?php echo get_the_ID()?>">
+            <div id="<?php echo get_post_field('post_name', get_the_ID()); ?>" class="bg-white rounded shadow flex flex-col items-center p-5 cursor-pointer text-center" data-option-id="<?php echo get_the_ID()?>">
                 <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>"
                     class="w-[50px] mb-3 h-auto object-cover">
                 <h3 class="text-sm font-noto font-bold"><?php  esc_html(the_title()); ?></h3>

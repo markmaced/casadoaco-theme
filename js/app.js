@@ -371,7 +371,7 @@ jQuery(document).ready(function ($) {
         return a * b / 1000;
       case "chapa":
         return a * b * c / 1000000;
-      case "barra-xadrez":
+      case "chapa-xadrez":
         return a * b * c / 1000000 * 1.1;
       case "tarugo":
         if (a) {
@@ -400,7 +400,7 @@ jQuery(document).ready(function ($) {
         return (2 * b * a - a * a) / 1000;
       case "perfil-u":
         return (3 * b * a - 2 * a * a) / 1000;
-      case "perfil-u-desigual":
+      case "perfil-u-abas-desiguais":
         return (b + c + d) * a / 1000;
       case "vergalhao-quadrado":
         return a * a / 1000;
@@ -593,6 +593,99 @@ jQuery(document).ready(function ($) {
     });
     localStorage.setItem('cart', JSON.stringify(cart));
   }
+  function removeFromLocalStorage(cartId) {
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(function (produto) {
+      return produto.cartId !== cartId;
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    addToCart(cart);
+  }
+  $(document).on('click', '#removeItem', function () {
+    var cartId = $(this).data('cartid');
+    removeFromLocalStorage(cartId);
+    $(this).closest('.product-item').remove();
+  });
+  var envioEscolhido = '';
+  $('.next-step').on('click', function () {
+    envioEscolhido = $('input[name="envio"]:checked').val();
+    console.log('Envio escolhido:', envioEscolhido);
+    var $contato = $('#contato');
+    if (envioEscolhido === 'email') {
+      $contato.attr('placeholder', 'Digite seu e-mail');
+      $contato.attr('type', 'email');
+      $contato.unmask(); // remove qualquer máscara
+    } else {
+      $contato.attr('placeholder', 'Digite seu WhatsApp');
+      $contato.attr('type', 'text');
+      $contato.mask('(00) 00000-0000');
+    }
+
+    // Esconde o step1 e mostra o step2
+    $('.step1').hide();
+    $('.step2').show();
+  });
+
+  // Máscara para o CNPJ
+  $('#cnpj').mask('00.000.000/0000-00');
+  $('.enviar-proposta').on('click', function () {
+    var envioEscolhido = $('input[name="envio"]:checked').val();
+    var nome = $('#nome').val();
+    var empresa = $('#empresa').val();
+    var cnpj = $('#cnpj').val();
+    var contato = $('#contato').val();
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    var dados = {
+      action: 'enviar_proposta',
+      envio: envioEscolhido,
+      nome: nome,
+      empresa: empresa,
+      cnpj: cnpj,
+      contato: contato,
+      cart: cart
+    };
+
+    // Swal de loading
+    Swal.fire({
+      title: 'Enviando...',
+      text: 'Por favor, aguarde.',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: function didOpen() {
+        Swal.showLoading();
+      }
+    });
+    $.ajax({
+      url: wpurl.admin_url,
+      method: 'POST',
+      data: dados,
+      success: function success(response) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Proposta enviada!',
+          text: 'Obrigado por entrar em contato.',
+          confirmButtonColor: '#f97316'
+        });
+        console.log(response);
+        localStorage.removeItem('cart');
+        $('.step1').hide();
+        $('.step2').hide();
+        $('.product-table').hide();
+        $('.product-table').hide();
+        $('.header-title').hide();
+        $('.step3').removeClass('hidden').show();
+      },
+      error: function error(err) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: 'Não foi possível enviar a proposta. Tente novamente.',
+          confirmButtonColor: '#f97316'
+        });
+        console.error(err);
+      }
+    });
+  });
 });
 
 /***/ })
