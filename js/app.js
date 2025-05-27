@@ -548,6 +548,12 @@ jQuery(document).ready(function ($) {
       }
     });
   }
+  setTimeout(function () {
+    $('#quoteBubble').removeClass('-right-60');
+    $('#quoteBubble').removeClass('opacity-0');
+    $('#quoteBubble').addClass('right-14');
+    $('#quoteBubble').addClass('opacity-100');
+  }, 2000);
   $(document).on('click', '#closeCart', function () {
     $('.modal-cart').removeClass('flex').addClass('hidden');
   });

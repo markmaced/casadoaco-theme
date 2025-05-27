@@ -145,5 +145,9 @@
         </div>
     </div>
     <div id="cartIcon" class="z-50"></div>
+    <div id="quoteBubble"
+        class="w-48 text-center fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3">
+        Ver meu carrinho
+    </div>
 </section>
 <?php echo do_shortcode('[products_grid]') ?>
