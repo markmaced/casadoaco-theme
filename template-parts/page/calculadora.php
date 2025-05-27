@@ -64,7 +64,7 @@
             <div id="optionsFields"></div>
         </div>
         <!-- Modal de Carrinho -->
-        <div class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 modal-cart px-5 md:px-0">
+        <div class="fixed inset-0 bg-black/50 hidden items-center justify-center z-30 modal-cart px-5 md:px-0">
             <!-- Container -->
             <div class="bg-white shadow-xl w-full max-w-2xl py-6 rounded-md px-10 overflow-y-auto max-h-[90%]">
 
@@ -146,7 +146,7 @@
     </div>
     <div id="cartIcon" class="z-50"></div>
     <div id="quoteBubble"
-        class="w-48 text-center fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3">
+        class="w-48 text-left fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3 pl-8 z-40">
         Ver meu carrinho
     </div>
 </section>

@@ -547,6 +547,7 @@ jQuery(document).ready(function ($) {
 			success: function (response) {
 				$('#cartSession').html(response);
 				$('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>')
+				cartBubble()
 			},
 			error: function (xhr, status, error) {
 				console.error('Erro ao enviar o carrinho:', status, error);
@@ -554,12 +555,14 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
-	setTimeout(function () {
+	function cartBubble(){
+		setTimeout(function () {
         $('#quoteBubble').removeClass('-right-60')
         $('#quoteBubble').removeClass('opacity-0')
         $('#quoteBubble').addClass('right-14')
         $('#quoteBubble').addClass('opacity-100')
     }, 2000);
+	}
 
 	$(document).on('click', '#closeCart', function () {
 		$('.modal-cart').removeClass('flex').addClass('hidden')
@@ -578,6 +581,7 @@ jQuery(document).ready(function ($) {
 	})
 	if (cart != '') {
 		$('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>')
+		cartBubble()
 	}
 	$(document).on('click', '.increase-qty', function () {
 		var input = $(this).siblings('#qtd');
