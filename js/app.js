@@ -541,6 +541,7 @@ jQuery(document).ready(function ($) {
       },
       success: function success(response) {
         $('#cartSession').html(response);
+        $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-3 openModal cursor-pointer shadow-btn bg-black transition-all duration-500 hover:bg-casadoaco-orange"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-6"></div>');
       },
       error: function error(xhr, status, _error) {
         console.error('Erro ao enviar o carrinho:', status, _error);
@@ -563,7 +564,7 @@ jQuery(document).ready(function ($) {
     addToCart(JSON.parse(localStorage.getItem('cart')));
   });
   if (cart != '') {
-    $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-3 openModal cursor-pointer shadow-btn bg-white transition-all duration-500 hover:bg-casadoaco-orange"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-6"></div>');
+    $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-3 openModal cursor-pointer shadow-btn bg-black transition-all duration-500 hover:bg-casadoaco-orange"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-6"></div>');
   }
   $(document).on('click', '.increase-qty', function () {
     var input = $(this).siblings('#qtd');
@@ -624,6 +625,10 @@ jQuery(document).ready(function ($) {
     // Esconde o step1 e mostra o step2
     $('.step1').hide();
     $('.step2').show();
+  });
+  $('.prev-step').on('click', function () {
+    $('.step2').hide();
+    $('.step1').show();
   });
 
   // Máscara para o CNPJ

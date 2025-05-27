@@ -80,11 +80,6 @@
                     <div class="grid grid-cols-12 font-bold text-sm border-b pb-2 mb-3">
                         <div class="md:col-span-1 col-span-2 font-noto text-casadoaco-orange text-xs">Qtd</div>
                         <div class="md:col-span-7 col-span-5 font-noto text-casadoaco-orange text-xs">Produtos</div>
-                        <div class="md:col-span-4 col-span-5 font-noto text-right">
-                            <a href="#" class="text-[10px] text-[#919497] font-normal font-noto closeModal">Adicionar
-                                mais
-                                produtos</a>
-                        </div>
                     </div>
                     <div class="w-full" id="cartSession">
                     </div>
@@ -92,15 +87,9 @@
 
                 <!-- Formulário de envio -->
                 <div class="w-full step1">
-                    <h3 class="text-xl font-bold uppercase mb-2 font-rockstar">
+                    <h3 class="text-xl font-bold uppercase mb-5 font-rockstar">
                         Como devemos enviar a proposta para você?
                     </h3>
-                    <p class="text-sm text-gray-600 mb-4 font-noto">
-                        Lorem ipsum dolor sit amet consectetur. Laoreet rhoncus faucibus aliquet faucibus aliquam nibh
-                        elementum nunc. Augue aenean egestas Lorem ipsum dolor sit amet consectetur. Laoreet rhoncus
-                        faucibus aliquet faucibus aliquam nibh elementum nunc. Augue aenean egestas
-                    </p>
-
                     <div class="flex gap-6 mb-6">
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="radio" name="envio" value="email" class="accent-orange-500" checked />
@@ -112,10 +101,14 @@
                         </label>
                     </div>
 
-                    <div class="w-full">
+                    <div class="w-full flex justify-between">
                         <button
                             class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer next-step">
                             Confirmar
+                        </button>
+                        <button
+                            class="bg-black hover:bg-casadoaco-orange text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer closeModal">
+                            + Adicionar mais produtos
                         </button>
                     </div>
                 </div>
@@ -127,10 +120,16 @@
                     <input type="text" id="cnpj" class="block w-full mb-3 p-2 border rounded" placeholder="CNPJ">
                     <input type="text" id="contato" class="block w-full mb-3 p-2 border rounded"
                         placeholder="E-mail ou WhatsApp">
-                    <button
-                        class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer enviar-proposta">
-                        Enviar Proposta
-                    </button>
+                    <div class="w-full flex justify-between">
+                        <button
+                            class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer enviar-proposta">
+                            Enviar Proposta
+                        </button>
+                        <button
+                            class="bg-black hover:bg-casadoaco-orange text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer prev-step">
+                            Voltar
+                        </button>
+                    </div>
                 </div>
 
                 <div class="w-full step3 hidden text-center">

@@ -135,7 +135,7 @@
 							<a href="/contato"
 								class="text-custom-gray hover:text-black relative transition-all duration-500 before:transition-all before:duration-500 before:h-0.5 before:absolute before:-bottom-1 hover:before:w-full before:w-0 before:content-[''] before:bg-casadoaco-orange font-noto font-semibold text-lg active:text-black">Contato</a>
 						</li>
-						<li class="menu-item">
+						<li>
 							<a href="/calculadora"
 								class="text-white bg-casadoaco-orange py-1.5 px-5 rounded-md font-noto font-semibold text-lg transition-all duration-500 hover:bg-black">Calculadora</a>
 						</li>
@@ -174,7 +174,7 @@
 							<a href="/contato"
 								class="text-custom-gray hover:text-black relative transition-all duration-500 before:transition-all before:duration-500 before:h-0.5 before:absolute before:-bottom-1 hover:before:w-full before:w-0 before:content-[''] before:bg-casadoaco-orange font-noto font-semibold text-lg active:text-black">Contato</a>
 						</li>
-						<li class="menu-item">
+						<li>
 							<a href="/calculadora"
 								class="text-white bg-casadoaco-orange py-1.5 px-5 rounded-md font-noto font-semibold text-lg transition-all duration-500 hover:bg-black">Calculadora</a>
 						</li>

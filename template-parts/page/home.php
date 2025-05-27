@@ -15,7 +15,7 @@
         <div class="w-auto md:mb-0 mb-5">
           <a href="#casadoaco"
             class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-2 rounded-md font-noto font-semibold md:text-base text-sm">
-            Conheça a casa do aço
+            Conheça a Casa do Aço
           </a>
         </div>
         <div class="w-auto">
