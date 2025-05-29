@@ -115,21 +115,24 @@
 
                 <div class="w-full step2 hidden">
                     <h3 class="text-xl font-bold uppercase mb-4 font-rockstar">Digite seus dados</h3>
-                    <input type="text" id="nome" class="block w-full mb-3 p-2 border rounded" placeholder="Nome">
-                    <input type="text" id="empresa" class="block w-full mb-3 p-2 border rounded" placeholder="Empresa">
-                    <input type="text" id="cnpj" class="block w-full mb-3 p-2 border rounded" placeholder="CNPJ">
-                    <input type="text" id="contato" class="block w-full mb-3 p-2 border rounded"
-                        placeholder="E-mail ou WhatsApp">
-                    <div class="w-full flex justify-between">
-                        <button
-                            class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer enviar-proposta">
-                            Enviar Proposta
-                        </button>
-                        <button
-                            class="bg-black hover:bg-casadoaco-orange text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer prev-step">
-                            Voltar
-                        </button>
-                    </div>
+                    <form id="formProposta">
+                        <input type="text" id="nome" class="block w-full mb-3 p-2 border rounded" placeholder="Nome">
+                        <input type="text" id="empresa" class="block w-full mb-3 p-2 border rounded"
+                            placeholder="Empresa">
+                        <input type="text" id="cnpj" class="block w-full mb-3 p-2 border rounded" placeholder="CNPJ">
+                        <input type="text" id="contato" class="block w-full mb-3 p-2 border rounded"
+                            placeholder="E-mail ou WhatsApp">
+                        <div class="w-full flex justify-between">
+                            <button
+                                class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer enviar-proposta">
+                                Enviar Proposta
+                            </button>
+                            <button
+                                class="bg-black hover:bg-casadoaco-orange text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer prev-step">
+                                Voltar
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="w-full step3 hidden text-center">
@@ -146,7 +149,7 @@
     </div>
     <div id="cartIcon" class="z-50"></div>
     <div id="quoteBubble"
-        class="w-48 text-left fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3 pl-8 z-40">
+        class="w-48 text-left fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3 pl-8 z-40 openModal cursor-pointer">
         Ver meu carrinho
     </div>
 </section>

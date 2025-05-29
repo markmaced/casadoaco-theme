@@ -468,6 +468,26 @@ jQuery(document).ready(function ($) {
 	})
 	var cart = JSON.parse(localStorage.getItem('cart')) || [];
 	$(document).on('click', '#addToCart', function () {
+
+		let isValid = true;
+
+		// Percorre todos os inputs do form que não estão desabilitados
+		$('#formCamposCalc input:not(:disabled)').each(function () {
+			if ($(this).val().trim() === '') {
+				isValid = false;
+				return false;
+			}
+		});
+
+		if (!isValid) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Erro',
+				text: 'Por favor, faça o cálculo para adicionar ao carrinho.'
+			});
+			return;
+		}
+
 		var activeBtn = $('.activeCalc');
 		var activeFormat = $('.buttonActive');
 
@@ -555,13 +575,13 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
-	function cartBubble(){
+	function cartBubble() {
 		setTimeout(function () {
-        $('#quoteBubble').removeClass('-right-60')
-        $('#quoteBubble').removeClass('opacity-0')
-        $('#quoteBubble').addClass('right-14')
-        $('#quoteBubble').addClass('opacity-100')
-    }, 2000);
+			$('#quoteBubble').removeClass('-right-60')
+			$('#quoteBubble').removeClass('opacity-0')
+			$('#quoteBubble').addClass('right-14')
+			$('#quoteBubble').addClass('opacity-100')
+		}, 2000);
 	}
 
 	$(document).on('click', '#closeCart', function () {
@@ -660,7 +680,26 @@ jQuery(document).ready(function ($) {
 	// Máscara para o CNPJ
 	$('#cnpj').mask('00.000.000/0000-00');
 
-	$('.enviar-proposta').on('click', function () {
+	$('.enviar-proposta').on('click', function (e) {
+		e.preventDefault()
+		let isValid = true;
+
+		$('#formProposta input:not(:disabled)').each(function () {
+			if ($(this).attr('id') !== 'empresa' && $(this).val().trim() === '') {
+				isValid = false;
+				return false;
+			}
+		});
+
+		if (!isValid) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Erro',
+				text: 'Por favor, preencha todos os campos obrigatórios.'
+			});
+			return;
+		}
+
 		const envioEscolhido = $('input[name="envio"]:checked').val();
 		const nome = $('#nome').val();
 		const empresa = $('#empresa').val();
@@ -723,24 +762,24 @@ jQuery(document).ready(function ($) {
 		});
 	});
 	function isMobile() {
-        return window.innerWidth <= 768;
-    }
+		return window.innerWidth <= 768;
+	}
 
-    $(document).on('click', '.cat-calc-btn' , function() {
-        if (isMobile()) {
-            $('html, body').animate({
-                scrollTop: $('#calcOptions').offset().top - 50
-            }, 600);
-        }
-    });
+	$(document).on('click', '.cat-calc-btn', function () {
+		if (isMobile()) {
+			$('html, body').animate({
+				scrollTop: $('#calcOptions').offset().top - 50
+			}, 600);
+		}
+	});
 
-    $(document).on('click', '.formato-btn', function() {
-        if (isMobile()) {
-            // Scroll suave até a seção "Medidas"
-            $('html, body').animate({
-                scrollTop: $('#optionsFields').offset().top - 50
-            }, 600);
-        }
-    });
+	$(document).on('click', '.formato-btn', function () {
+		if (isMobile()) {
+			// Scroll suave até a seção "Medidas"
+			$('html, body').animate({
+				scrollTop: $('#optionsFields').offset().top - 50
+			}, 600);
+		}
+	});
 
 });

@@ -470,6 +470,23 @@ jQuery(document).ready(function ($) {
   });
   var cart = JSON.parse(localStorage.getItem('cart')) || [];
   $(document).on('click', '#addToCart', function () {
+    var isValid = true;
+
+    // Percorre todos os inputs do form que não estão desabilitados
+    $('#formCamposCalc input:not(:disabled)').each(function () {
+      if ($(this).val().trim() === '') {
+        isValid = false;
+        return false;
+      }
+    });
+    if (!isValid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Por favor, faça o cálculo para adicionar ao carrinho.'
+      });
+      return;
+    }
     var activeBtn = $('.activeCalc');
     var activeFormat = $('.buttonActive');
     var activeBtnText = activeBtn.text();
@@ -643,7 +660,23 @@ jQuery(document).ready(function ($) {
 
   // Máscara para o CNPJ
   $('#cnpj').mask('00.000.000/0000-00');
-  $('.enviar-proposta').on('click', function () {
+  $('.enviar-proposta').on('click', function (e) {
+    e.preventDefault();
+    var isValid = true;
+    $('#formProposta input:not(:disabled)').each(function () {
+      if ($(this).attr('id') !== 'empresa' && $(this).val().trim() === '') {
+        isValid = false;
+        return false;
+      }
+    });
+    if (!isValid) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Por favor, preencha todos os campos obrigatórios.'
+      });
+      return;
+    }
     var envioEscolhido = $('input[name="envio"]:checked').val();
     var nome = $('#nome').val();
     var empresa = $('#empresa').val();
