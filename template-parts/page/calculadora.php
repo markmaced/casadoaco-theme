@@ -147,10 +147,12 @@
             </div>
         </div>
     </div>
-    <div id="cartIcon" class="z-50"></div>
-    <div id="quoteBubble"
-        class="w-48 text-left fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3 pl-8 z-40 openModal cursor-pointer">
-        Ver meu carrinho
+    <div class="group relative z-50">
+        <div id="cartIcon" class="z-50"></div>
+        <div id="quoteBubble"
+            class="w-48 text-left fixed bg-casadoaco-orange text-white rounded-full shadow-lg text-xs font-noto px-5 transition-all duration-500 -right-60 opacity-0 bottom-12 p-3 pl-8 z-40 openModal cursor-pointer group-hover:bg-black">
+            Ver meu carrinho
+        </div>
     </div>
 </section>
 <?php echo do_shortcode('[products_grid]') ?>

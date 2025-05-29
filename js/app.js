@@ -558,7 +558,7 @@ jQuery(document).ready(function ($) {
       },
       success: function success(response) {
         $('#cartSession').html(response);
-        $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
+        $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
         cartBubble();
       },
       error: function error(xhr, status, _error) {
@@ -590,7 +590,7 @@ jQuery(document).ready(function ($) {
     addToCart(JSON.parse(localStorage.getItem('cart')));
   });
   if (cart != '') {
-    $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
+    $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
     cartBubble();
   }
   $(document).on('click', '.increase-qty', function () {
