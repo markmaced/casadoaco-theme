@@ -28,7 +28,7 @@
 </section>
 <section class="w-full md:py-16 py-5">
     <div class="max-w-6xl mx-auto flex md:flex-row flex-col gap-5 relative md:px-0 px-5">
-        <div class="md:w-1/4 w-full">
+        <div class="md:w-[13%] w-full">
             <div class="w-full shadow-calc bg-white text-center py-5 mb-5">
                 <h2 class="font-noto font-normal text-base mb-0 leading-2">Escolha o </h2>
                 <p class="font-rockstar text-xl text-casadoaco-orange">Material</p>
@@ -47,14 +47,14 @@
                 ?>
             </div>
         </div>
-        <div class="md:w-2/4 w-full">
+        <div class="md:w-[37%] w-full">
             <div class="w-full shadow-calc bg-white text-center py-5 mb-5">
                 <h2 class="font-noto font-normal text-base mb-0 leading-2">Escolha o </h2>
                 <p class="font-rockstar text-xl text-casadoaco-orange">Formato</p>
             </div>
             <div id="calcOptions" class="grid grid-cols-3 gap-5 mt-5"></div>
         </div>
-        <div class="md:w-1/4 w-full">
+        <div class="md:w-[20%] w-full">
             <div class="w-full shadow-calc bg-white text-center py-5 mb-5">
                 <h2 class="font-noto font-normal text-base mb-0 leading-2">Calcule por </h2>
                 <p class="font-rockstar text-xl text-casadoaco-orange">Medidas</p>
@@ -62,6 +62,13 @@
             <input type="hidden" id="material" name="material">
             <input type="hidden" id="formato" name="formato">
             <div id="optionsFields"></div>
+        </div>
+        <div class="md:w-[30%] w-full">
+            <div class="w-full shadow-calc bg-white text-center py-5 mb-5">
+                <h2 class="font-noto font-normal text-base mb-0 leading-2">Meu</h2>
+                <p class="font-rockstar text-xl text-casadoaco-orange">Carrinho</p>
+            </div>
+            <div class="w-full" id="cartItems"></div>
         </div>
         <!-- Modal de Carrinho -->
         <div class="fixed inset-0 bg-black/50 hidden items-center justify-center z-30 modal-cart px-5 md:px-0">

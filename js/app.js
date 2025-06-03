@@ -536,7 +536,7 @@ jQuery(document).ready(function ($) {
     var found = false;
     for (var i = 0; i < cart.length; i++) {
       if (cart[i].material === product.material && cart[i].formato === product.formato && cart[i].medidas.txta.value === product.medidas.txta.value && cart[i].medidas.txtb.value === product.medidas.txtb.value && cart[i].medidas.txtc.value === product.medidas.txtc.value && cart[i].medidas.txtd.value === product.medidas.txtd.value && cart[i].medidas.resultado.value === product.medidas.resultado.value) {
-        cart[i].quantidade += 1;
+        cart[i].quantidade = Number(cart[i].quantidade) + 1;
         found = true;
         break;
       }
@@ -546,6 +546,7 @@ jQuery(document).ready(function ($) {
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     addToCart(cart);
+    addToCartFront(cart);
     $('.modal-cart').removeClass('hidden').addClass('flex');
   });
   function addToCart(cartObject) {
@@ -558,14 +559,38 @@ jQuery(document).ready(function ($) {
       },
       success: function success(response) {
         $('#cartSession').html(response);
-        $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
-        cartBubble();
+        if (response) {
+          $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
+          cartBubble();
+        }
       },
       error: function error(xhr, status, _error) {
         console.error('Erro ao enviar o carrinho:', status, _error);
       }
     });
   }
+  function addToCartFront(cartObject) {
+    $.ajax({
+      url: wpurl.admin_url,
+      type: 'POST',
+      data: {
+        action: 'enviar_carrinho_front',
+        cart: JSON.stringify(cartObject)
+      },
+      success: function success(response) {
+        $('#cartItems').html(response);
+        // if (response) {
+        // 	$('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>')
+        // 	cartBubble()
+        // }
+      },
+      error: function error(xhr, status, _error2) {
+        console.error('Erro ao enviar o carrinho:', status, _error2);
+      }
+    });
+  }
+  addToCart(JSON.parse(localStorage.getItem('cart')));
+  addToCartFront(JSON.parse(localStorage.getItem('cart')));
   function cartBubble() {
     setTimeout(function () {
       $('#quoteBubble').removeClass('-right-60');
@@ -587,31 +612,48 @@ jQuery(document).ready(function ($) {
   });
   $(document).on('click', '.openModal', function () {
     $('.modal-cart').removeClass('hidden').addClass('flex');
-    addToCart(JSON.parse(localStorage.getItem('cart')));
+    // addToCart(JSON.parse(localStorage.getItem('cart')))
   });
   if (cart != '') {
     $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
     cartBubble();
   }
-  $(document).on('click', '.increase-qty', function () {
-    var input = $(this).siblings('#qtd');
-    var currentVal = parseInt(input.text());
-    var newVal = currentVal + 1;
-    input.text(newVal);
+  $(document).on('change', '.qtd', function () {
+    var newVal = $(this).val();
     var cartId = $(this).data('cartid');
-    updateLocalStorage(cartId, newVal);
+    var isFront = true;
+    updateLocalStorage(cartId, newVal, isFront);
   });
-  $(document).on('click', '.decrease-qty', function () {
-    var input = $(this).siblings('#qtd');
-    var currentVal = parseInt(input.text());
-    if (currentVal > 1) {
-      var newVal = currentVal - 1;
-      input.text(newVal);
-      var cartId = $(this).data('cartid');
-      updateLocalStorage(cartId, newVal);
-    }
+  $(document).on('change', '#qtd', function () {
+    var newVal = $(this).val();
+    var cartId = $(this).data('cartid');
+    var isFront = false;
+    updateLocalStorage(cartId, newVal, isFront);
   });
-  function updateLocalStorage(cartId, novaQuantidade) {
+
+  // $(document).on('click', '.increase-qty', function () {
+  // 	var input = $(this).siblings('#qtd');
+  // 	var currentVal = parseInt(input.text());
+  // 	var newVal = currentVal + 1;
+  // 	input.text(newVal);
+
+  // 	var cartId = $(this).data('cartid');
+  // 	updateLocalStorage(cartId, newVal);
+  // });
+
+  // $(document).on('click', '.decrease-qty', function () {
+  // 	var input = $(this).siblings('#qtd');
+  // 	var currentVal = parseInt(input.text());
+  // 	if (currentVal > 1) {
+  // 		var newVal = currentVal - 1;
+  // 		input.text(newVal);
+
+  // 		var cartId = $(this).data('cartid');
+  // 		updateLocalStorage(cartId, newVal);
+  // 	}
+  // });
+
+  function updateLocalStorage(cartId, novaQuantidade, isFront) {
     var cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart = cart.map(function (produto) {
       if (produto.cartId === cartId) {
@@ -620,6 +662,12 @@ jQuery(document).ready(function ($) {
       return produto;
     });
     localStorage.setItem('cart', JSON.stringify(cart));
+    if (isFront) {
+      addToCart(cart);
+      console.log();
+    } else {
+      addToCartFront(cart);
+    }
   }
   function removeFromLocalStorage(cartId) {
     var cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -627,9 +675,8 @@ jQuery(document).ready(function ($) {
       return produto.cartId !== cartId;
     });
     localStorage.setItem('cart', JSON.stringify(cart));
-    addToCart(cart);
   }
-  $(document).on('click', '#removeItem', function () {
+  $(document).on('click', '.removeItem', function () {
     var cartId = $(this).data('cartid');
     removeFromLocalStorage(cartId);
     $(this).closest('.product-item').remove();
