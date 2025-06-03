@@ -590,6 +590,9 @@ jQuery(document).ready(function ($) {
       }
     });
   }
+  if (JSON.parse(localStorage.getItem('cart'))) {
+    $('.openModalContent').removeClass('hidden').addClass('flex');
+  }
   addToCart(JSON.parse(localStorage.getItem('cart')));
   addToCartFront(JSON.parse(localStorage.getItem('cart')));
   function cartBubble() {

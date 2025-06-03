@@ -69,7 +69,7 @@
                 <p class="font-rockstar text-xl text-casadoaco-orange">Carrinho</p>
             </div>
             <div class="w-full mb-10" id="cartItems"></div>
-            <div class="w-full flex justify-center">
+            <div class="w-full justify-center openModalContent hidden">
                 <button
                     class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer openModal w-full">
                     Finalizar proposta
