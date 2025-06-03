@@ -563,6 +563,7 @@ jQuery(document).ready(function ($) {
         if (response) {
           $('#cartIcon').html('<div class="fixed z-50 right-10 bottom-10 rounded-full p-4 openModal cursor-pointer shadow-btn bg-casadoaco-orange transition-all duration-500 group-hover:bg-black"><img src="/wp-content/themes/casadoaco-theme/resources/images/cart.png" class="w-7"></div>');
           cartBubble();
+          $('.openModalContent').removeClass('hidden').addClass('flex');
         }
       },
       error: function error(xhr, status, _error) {
@@ -589,9 +590,6 @@ jQuery(document).ready(function ($) {
         console.error('Erro ao enviar o carrinho:', status, _error2);
       }
     });
-  }
-  if (JSON.parse(localStorage.setItem('cart'))) {
-    $('.openModalContent').removeClass('hidden').addClass('flex');
   }
   addToCart(JSON.parse(localStorage.getItem('cart')));
   addToCartFront(JSON.parse(localStorage.getItem('cart')));
