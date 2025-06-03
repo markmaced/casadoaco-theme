@@ -598,7 +598,7 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
-	if(JSON.parse(localStorage.getItem('cart'))){
+	if(JSON.parse(localStorage.setItem('cart'))){
 		$('.openModalContent').removeClass('hidden').addClass('flex')
 	}
 
