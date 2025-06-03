@@ -68,7 +68,13 @@
                 <h2 class="font-noto font-normal text-base mb-0 leading-2">Meu</h2>
                 <p class="font-rockstar text-xl text-casadoaco-orange">Carrinho</p>
             </div>
-            <div class="w-full" id="cartItems"></div>
+            <div class="w-full mb-10" id="cartItems"></div>
+            <div class="w-full flex justify-center">
+                <button
+                    class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer openModal w-full">
+                    Finalizar proposta
+                </button>
+            </div>
         </div>
         <!-- Modal de Carrinho -->
         <div class="fixed inset-0 bg-black/50 hidden items-center justify-center z-30 modal-cart px-5 md:px-0">

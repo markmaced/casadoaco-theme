@@ -547,7 +547,8 @@ jQuery(document).ready(function ($) {
     localStorage.setItem('cart', JSON.stringify(cart));
     addToCart(cart);
     addToCartFront(cart);
-    $('.modal-cart').removeClass('hidden').addClass('flex');
+
+    // $('.modal-cart').removeClass('hidden').addClass('flex');
   });
   function addToCart(cartObject) {
     $.ajax({
@@ -679,7 +680,8 @@ jQuery(document).ready(function ($) {
   $(document).on('click', '.removeItem', function () {
     var cartId = $(this).data('cartid');
     removeFromLocalStorage(cartId);
-    $(this).closest('.product-item').remove();
+    addToCart(JSON.parse(localStorage.getItem('cart')));
+    addToCartFront(JSON.parse(localStorage.getItem('cart')));
   });
   var envioEscolhido = '';
   $('.next-step').on('click', function () {

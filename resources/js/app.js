@@ -553,9 +553,8 @@ jQuery(document).ready(function ($) {
 		addToCart(cart);
 		addToCartFront(cart)
 
-		$('.modal-cart').removeClass('hidden').addClass('flex');
+		// $('.modal-cart').removeClass('hidden').addClass('flex');
 	});
-
 
 	function addToCart(cartObject) {
 		$.ajax({
@@ -578,7 +577,7 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
-	function addToCartFront(cartObject){
+	function addToCartFront(cartObject) {
 		$.ajax({
 			url: wpurl.admin_url,
 			type: 'POST',
@@ -631,18 +630,18 @@ jQuery(document).ready(function ($) {
 		cartBubble()
 	}
 
-	$(document).on('change' , '.qtd' , function(){
+	$(document).on('change', '.qtd', function () {
 		var newVal = $(this).val()
 		var cartId = $(this).data('cartid');
 		var isFront = true
-		updateLocalStorage(cartId , newVal , isFront)
+		updateLocalStorage(cartId, newVal, isFront)
 	})
 
-	$(document).on('change' , '#qtd' , function(){
+	$(document).on('change', '#qtd', function () {
 		var newVal = $(this).val()
 		var cartId = $(this).data('cartid');
 		var isFront = false
-		updateLocalStorage(cartId , newVal , isFront)
+		updateLocalStorage(cartId, newVal, isFront)
 	})
 
 	// $(document).on('click', '.increase-qty', function () {
@@ -676,10 +675,10 @@ jQuery(document).ready(function ($) {
 			return produto;
 		});
 		localStorage.setItem('cart', JSON.stringify(cart));
-		if(isFront){
+		if (isFront) {
 			addToCart(cart)
 			console.log()
-		}else{
+		} else {
 			addToCartFront(cart)
 		}
 	}
@@ -693,7 +692,8 @@ jQuery(document).ready(function ($) {
 		const cartId = $(this).data('cartid');
 		removeFromLocalStorage(cartId);
 
-		$(this).closest('.product-item').remove();
+		addToCart(JSON.parse(localStorage.getItem('cart')))
+		addToCartFront(JSON.parse(localStorage.getItem('cart')))
 	});
 
 	let envioEscolhido = '';
