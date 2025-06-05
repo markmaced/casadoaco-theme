@@ -422,8 +422,6 @@ jQuery(document).ready(function ($) {
 		} else {
 			peso = vol * materiais[material]
 		}
-		console.log("vol " + vol);
-		console.log("Peso " + peso);
 		return peso
 	}
 	function toNumber(number) {
@@ -611,6 +609,13 @@ jQuery(document).ready(function ($) {
 		}, 2000);
 	}
 
+	function hideCartBubble() {
+		$('#quoteBubble').removeClass('right-14')
+		$('#quoteBubble').removeClass('opacity-100')
+		$('#quoteBubble').addClass('-right-60')
+		$('#quoteBubble').addClass('opacity-0')
+	}
+
 	$(document).on('click', '#closeCart', function () {
 		$('.modal-cart').removeClass('flex').addClass('hidden')
 	})
@@ -671,6 +676,7 @@ jQuery(document).ready(function ($) {
 		let cart = JSON.parse(localStorage.getItem('cart')) || [];
 		cart = cart.map(produto => {
 			if (produto.cartId === cartId) {
+				''
 				produto.quantidade = novaQuantidade;
 			}
 			return produto;
@@ -678,7 +684,6 @@ jQuery(document).ready(function ($) {
 		localStorage.setItem('cart', JSON.stringify(cart));
 		if (isFront) {
 			addToCart(cart)
-			console.log()
 		} else {
 			addToCartFront(cart)
 		}
@@ -692,16 +697,19 @@ jQuery(document).ready(function ($) {
 	$(document).on('click', '.removeItem', function () {
 		const cartId = $(this).data('cartid');
 		removeFromLocalStorage(cartId);
-
-		addToCart(JSON.parse(localStorage.getItem('cart')))
-		addToCartFront(JSON.parse(localStorage.getItem('cart')))
+		let currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+		addToCart(currentCart)
+		addToCartFront(currentCart)
+		if (currentCart == '') {
+			hideCartBubble()
+			$('.openModalContent').removeClass('flex').addClass('hidden')
+			$('#cartIcon .openModal').removeClass('flex').addClass('hidden')
+		}
 	});
 
 	let envioEscolhido = '';
 	$('.next-step').on('click', function () {
 		envioEscolhido = $('input[name="envio"]:checked').val();
-
-		console.log('Envio escolhido:', envioEscolhido);
 
 		const $contato = $('#contato');
 
@@ -720,7 +728,8 @@ jQuery(document).ready(function ($) {
 		$('.step2').show();
 	});
 
-	$('.prev-step').on('click', function () {
+	$(document).on('click', '.prev-step', function (e) {
+		e.preventDefault(e)
 		$('.step2').hide();
 		$('.step1').show();
 	});
@@ -783,12 +792,10 @@ jQuery(document).ready(function ($) {
 			success: function (response) {
 				Swal.fire({
 					icon: 'success',
-					title: 'Proposta enviada!',
+					title: 'Orçamento enviado!',
 					text: 'Obrigado por entrar em contato.',
 					confirmButtonColor: '#f97316'
 				});
-
-				console.log(response);
 
 				localStorage.removeItem('cart');
 				$('.step1').hide();
@@ -802,7 +809,7 @@ jQuery(document).ready(function ($) {
 				Swal.fire({
 					icon: 'error',
 					title: 'Erro!',
-					text: 'Não foi possível enviar a proposta. Tente novamente.',
+					text: 'Não foi possível enviar o orçamento. Tente novamente.',
 					confirmButtonColor: '#f97316'
 				});
 				console.error(err);

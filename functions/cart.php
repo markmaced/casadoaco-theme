@@ -20,7 +20,7 @@ function enviar_carrinho()
                                 <img src="<?php echo get_theme_image('edit.png') ?>" class="md:mt-0 mt-1">
                             </div>
                             <div class="md:w-[94%] w-full">
-                                <p class="font-semibold font-rockstar">
+                                <p class="font-bold font-noto">
                                     <?php echo $product['formato'] . ' - ' . $product['material'] ?>
                                 </p>
                             </div>
@@ -65,7 +65,7 @@ function enviar_carrinho_front()
                     <div class="flex">
                         <div class="flex w-[95%] md:items-center md:gap-0 gap-2">
                             <div class="w-full">
-                                <p class="font-semibold font-rockstar">
+                                <p class="font-bold font-noto">
                                     <?php echo $product['formato'] . ' - ' . $product['material'] ?>
                                 </p>
                             </div>

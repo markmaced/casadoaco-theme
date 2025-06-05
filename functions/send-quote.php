@@ -11,12 +11,12 @@ function handle_enviar_proposta() {
     $cart = isset($_POST['cart']) ? $_POST['cart'] : [];
 
     $para = 'marcos@wave.pro.br';
-    $assunto = 'Nova Proposta Recebida';
+    $assunto = 'Novo Orçamento Recebida';
 
     // Monta a tabela
     $tabela = '<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">';
     $tabela .= '<thead>
-                    <tr style="background-color: #f97316; color: #fff;">
+                    <tr style="background-color: #F7921A; color: #fff;">
                         <th>Material</th>
                         <th>Formato</th>
                         <th>Medidas</th>
@@ -53,7 +53,7 @@ function handle_enviar_proposta() {
 
     $mensagem = '
         <div style="font-family: Arial, sans-serif; color: #333;">
-            <h2 style="color: #f97316;">Nova proposta recebida</h2>
+            <h2 style="color: #F7921A;">Novo orçamento recebida</h2>
             <p><strong>Deseja receber retorno em:</strong> ' . esc_html($envio) . '</p>
             <p><strong>Nome:</strong> ' . esc_html($nome) . '</p>
             <p><strong>Empresa:</strong> ' . esc_html($empresa) . '</p>
@@ -70,9 +70,9 @@ function handle_enviar_proposta() {
     $enviado = wp_mail($para, $assunto, $mensagem, $headers);
 
     if($enviado) {
-        wp_send_json_success('Proposta enviada com sucesso.');
+        wp_send_json_success('Orçamento enviado com sucesso.');
     } else {
-        wp_send_json_error('Erro ao enviar proposta.');
+        wp_send_json_error('Erro ao enviar orçamento.');
     }
 
     wp_die();

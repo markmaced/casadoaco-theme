@@ -72,7 +72,7 @@
             <div class="w-full justify-center openModalContent hidden">
                 <button
                     class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer openModal w-full">
-                    Finalizar proposta
+                    Solicitar orçamento
                 </button>
             </div>
         </div>
@@ -101,7 +101,7 @@
                 <!-- Formulário de envio -->
                 <div class="w-full step1">
                     <h3 class="text-xl font-bold uppercase mb-5 font-rockstar">
-                        Como devemos enviar a proposta para você?
+                        Como devemos enviar o orçamento para você?
                     </h3>
                     <div class="flex gap-6 mb-6">
                         <label class="flex items-center gap-2 cursor-pointer">
@@ -129,16 +129,16 @@
                 <div class="w-full step2 hidden">
                     <h3 class="text-xl font-bold uppercase mb-4 font-rockstar">Digite seus dados</h3>
                     <form id="formProposta">
-                        <input type="text" id="nome" class="block w-full mb-3 p-2 border rounded" placeholder="Nome">
+                        <input type="text" id="nome" class="block w-full mb-3 p-2 border rounded" placeholder="Nome*">
                         <input type="text" id="empresa" class="block w-full mb-3 p-2 border rounded"
-                            placeholder="Empresa">
-                        <input type="text" id="cnpj" class="block w-full mb-3 p-2 border rounded" placeholder="CNPJ">
+                            placeholder="Empresa (Opcional)">
+                        <input type="text" id="cnpj" class="block w-full mb-3 p-2 border rounded" placeholder="CNPJ*">
                         <input type="text" id="contato" class="block w-full mb-3 p-2 border rounded"
                             placeholder="E-mail ou WhatsApp">
                         <div class="w-full flex justify-between">
                             <button
                                 class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer enviar-proposta">
-                                Enviar Proposta
+                                Solicitar orçamento
                             </button>
                             <button
                                 class="bg-black hover:bg-casadoaco-orange text-white font-semibold py-2 px-6 rounded-md transition duration-300 cursor-pointer prev-step">
@@ -150,7 +150,7 @@
 
                 <div class="w-full step3 hidden text-center">
                     <h3 class="text-2xl font-bold uppercase mb-4 font-rockstar text-black">Obrigado!</h3>
-                    <p class="text-gray-600 font-noto mb-6">Sua proposta foi enviada com sucesso. Em breve entraremos em
+                    <p class="text-gray-600 font-noto mb-6">Seu orçamento foi enviado com sucesso. Em breve entraremos em
                         contato.</p>
                     <button
                         class="bg-casadoaco-orange hover:bg-black text-white font-semibold py-2 px-6 rounded-md transition-all duration-500 cursor-pointer closeModal">
