@@ -11,18 +11,45 @@
         <div class="md:w-1/5 w-full border-r border-r-[#f1f1f1] md:mb-0 mb-10">
             <form id="filtro-produtos" class="space-y-6">
                 <?php
-                $categorias = get_terms(['taxonomy' => 'categoria_produto', 'hide_empty' => false]);
-                if (!empty($categorias)): ?>
+                $categorias_pai = get_terms([
+                    'taxonomy' => 'categoria_produto',
+                    'parent' => 0,
+                    'hide_empty' => false
+                ]);
+
+                if (!empty($categorias_pai)): ?>
                     <div class="mb-5">
                         <h3 class="text-lg font-semibold mb-2 font-rockstar text-casadoaco-orange">Categorias</h3>
-                        <?php foreach ($categorias as $cat): ?>
-                            <label class="block">
-                                <input type="checkbox" name="categoria_produto[]" value="<?php echo esc_attr($cat->slug); ?>">
-                                <?php echo esc_html($cat->name); ?>
+                        <?php foreach ($categorias_pai as $cat_pai): ?>
+                            <label class="block font-semibold">
+                                <input type="checkbox" name="categoria_produto[]"
+                                    value="<?php echo esc_attr($cat_pai->slug); ?>">
+                                <?php echo esc_html($cat_pai->name); ?>
                             </label>
+
+                            <?php
+                            $subcategorias = get_terms([
+                                'taxonomy' => 'categoria_produto',
+                                'parent' => $cat_pai->term_id,
+                                'hide_empty' => false
+                            ]);
+
+                            if (!empty($subcategorias)): ?>
+                                <div class="ml-4">
+                                    <?php foreach ($subcategorias as $subcat): ?>
+                                        <label class="block">
+                                            <input type="checkbox" name="categoria_produto[]"
+                                                value="<?php echo esc_attr($subcat->slug); ?>">
+                                            <?php echo esc_html($subcat->name); ?>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
+
                 <?php
                 $lojas = get_terms(['taxonomy' => 'lojas', 'hide_empty' => false]);
                 if (!empty($lojas)): ?>
@@ -36,7 +63,6 @@
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-
             </form>
         </div>
         <div class="md:w-4/5 w-full">
@@ -56,7 +82,7 @@
                     <div class="w-1/2">
                         <div class="flex w-full items-center">
                             <div class="w-[10%]">
-                                <img src="<?php echo get_theme_image( 'rocket.png') ?>">
+                                <img src="<?php echo get_theme_image('rocket.png') ?>">
                             </div>
                             <div class="w-[90%]">
                                 <h2 class="md:text-xl text-base font-rockstar text-custom-gray">Nossos <span

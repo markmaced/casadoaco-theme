@@ -699,11 +699,11 @@ jQuery(document).ready(function ($) {
     envioEscolhido = $('input[name="envio"]:checked').val();
     var $contato = $('#contato');
     if (envioEscolhido === 'email') {
-      $contato.attr('placeholder', 'Digite seu e-mail*');
+      $contato.attr('placeholder', 'Digite seu e-mail');
       $contato.attr('type', 'email');
       $contato.unmask(); // remove qualquer máscara
     } else {
-      $contato.attr('placeholder', 'Digite seu WhatsApp*');
+      $contato.attr('placeholder', 'Digite seu WhatsApp');
       $contato.attr('type', 'text');
       $contato.mask('(00) 00000-0000');
     }
