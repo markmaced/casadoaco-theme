@@ -42,61 +42,56 @@
 					<div class="w-full md:flex gap-5 mt-32 hidden">
 						<div
 							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<a href="/categoria-produto/tubos-achatados">
+							<a href="/produtos/chapa-lisa-inox/">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
-										Tubos achatados
+										Chapa Lisa inox
 									</h3>
-									<p class="text-base text-white font-noto">Leveza e resistência combinadas. Ideal para
-										estruturas que exigem estética e performance.</p>
+									<p class="text-base text-white font-noto">Superfície uniforme, durável e resistente à corrosão. Ideal para aplicações que exigem acabamento nobre e alta performance.</p>
 								</div>
 							</a>
 						</div>
 						<div
 							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<a href="/categoria-produto/tubos-redondos">
+							<a href="/produtos/tubo-redondo-inox/">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
-										Tubos redondos
+										Tubo redondo enorme
 									</h3>
-									<p class="text-base text-white font-noto">Versatilidade para aplicações industriais e
-										hidráulicas. Produzidos com alto padrão de precisão dimensional.</p>
+									<p class="text-base text-white font-noto">Resistência mecânica e excelente acabamento. Perfeito para uso em estruturas, corrimãos e aplicações industriais expostas.</p>
 								</div>
 							</a>
 						</div>
 						<div
 							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<a href="/categoria-produto/tubos-retangulares">
+							<a href="/produtos/bronze-oco-tm23/">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
-										Tubos retangulares
+										Bronze oco
 									</h3>
-									<p class="text-base text-white font-noto">Estabilidade e rigidez para estruturas
-										metálicas, maquinários e componentes industriais.</p>
+									<p class="text-base text-white font-noto">Leveza com condutividade e resistência. Utilizado em sistemas hidráulicos, mancais e componentes com redução de peso.</p>
 								</div>
 							</a>
 						</div>
 						<div
 							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<a href="/categoria-produto/tubos-quadrados">
+							<a href="/produtos/bronze-cheio-tm23/">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
-										Tubos quadrados
+										Bronze cheio
 									</h3>
-									<p class="text-base text-white font-noto">Alta resistência à torção e impactos.
-										Utilizado em obras, suportes e sistemas estruturais.</p>
+									<p class="text-base text-white font-noto">Sólido, confiável e resistente ao desgaste. Essencial em engrenagens, buchas e peças de alto atrito.</p>
 								</div>
 							</a>
 						</div>
 						<div
 							class="w-1/5 border-t border-t-white pt-5 px-3 relative group before:content-[''] before:absolute before:-top-7 before:left-0 before:h-0 before:w-0 before:bg-casadoaco-orange before:transition-all before:duration-500 before:z-0 hover:before:w-full hover:before:h-[272px]">
-							<a href="/categoria-produto/tubos-trefilados">
+							<a href="/produtos/barra-redonda-inox/">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
-										Tubos trefilados
+										Barra redonda inox
 									</h3>
-									<p class="text-base text-white font-noto">Acabamento refinado e tolerância exata.
-										Recomendado para projetos com alto nível técnico e visual.</p>
+									<p class="text-base text-white font-noto">Alta resistência e acabamento superior. Indicado para eixos, pinos e elementos com exigência estética e funcional.</p>
 								</div>
 							</a>
 						</div>
