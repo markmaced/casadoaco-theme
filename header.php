@@ -56,7 +56,7 @@
 							<a href="/produtos/tubo-redondo-inox/">
 								<div class="relative z-10">
 									<h3 class="text-lg font-rockstar text-casadoaco-orange group-hover:text-black mb-5">
-										Tubo redondo enorme
+										Tubo redondo inox (OD)
 									</h3>
 									<p class="text-base text-white font-noto">Resistência mecânica e excelente acabamento. Perfeito para uso em estruturas, corrimãos e aplicações industriais expostas.</p>
 								</div>
