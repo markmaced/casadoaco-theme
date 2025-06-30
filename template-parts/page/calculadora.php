@@ -11,14 +11,14 @@
                 especificações
                 ideais do material que você precisa. Basta selecionar o tipo, o formato e inserir as medidas. Simples,
                 rápido e direto ao ponto.</p>
-            <form method="post" class="w-full">
+            <!-- <form method="post" class="w-full">
                 <div class="flex items-center w-full md:flex-row">
                     <input type="email" name="newsletter_email" placeholder="Inscreva-se com o seu e-mail"
                         class="text-black bg-[#ECF2F7] border border-[#ECF2F7] rounded-xl px-8 py-2 md:w-xs w-full font-noto md:mb-0 mb-5">
                     <button type="button"
                         class="newsletter-btn text-white bg-casadoaco-orange rounded-xl px-4 py-2 cursor-pointer font-noto md:-ml-8 mx-auto transition-all duration-500 hover:bg-black hover:text-white md:mt-0 -mt-5">Assinar</button>
                 </div>
-            </form>
+            </form> -->
         </div>
         <div class="md:w-1/2 w-full px-5 md:px-0 flex gap-1 md:mb-0 mb-5">
             <img src="<?php echo get_theme_image('calculadora-hero-1.png') ?>" class="md:w-full w-1/2">

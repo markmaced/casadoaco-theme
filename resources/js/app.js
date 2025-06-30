@@ -714,11 +714,11 @@ jQuery(document).ready(function ($) {
 		const $contato = $('#contato');
 
 		if (envioEscolhido === 'email') {
-			$contato.attr('placeholder', 'Digite seu e-mail');
+			$contato.attr('placeholder', 'Digite seu e-mail*');
 			$contato.attr('type', 'email');
 			$contato.unmask(); // remove qualquer máscara
 		} else {
-			$contato.attr('placeholder', 'Digite seu WhatsApp');
+			$contato.attr('placeholder', 'Digite seu WhatsApp*');
 			$contato.attr('type', 'text');
 			$contato.mask('(00) 00000-0000');
 		}
@@ -738,7 +738,7 @@ jQuery(document).ready(function ($) {
 	$('#cnpj').mask('00.000.000/0000-00');
 
 	$('.enviar-proposta').on('click', function (e) {
-		e.preventDefault()
+		e.preventDefault();
 		let isValid = true;
 
 		$('#formProposta input:not(:disabled)').each(function () {
@@ -757,7 +757,7 @@ jQuery(document).ready(function ($) {
 			return;
 		}
 
-		const envioEscolhido = $('input[name="envio"]:checked').val();
+		const envioEscolhido = $('input[name="envio"]:checked').val(); // 'email' ou 'whatsapp'
 		const nome = $('#nome').val();
 		const empresa = $('#empresa').val();
 		const cnpj = $('#cnpj').val();
@@ -774,7 +774,15 @@ jQuery(document).ready(function ($) {
 			cart: cart
 		};
 
-		// Swal de loading
+		// Dados para o CRM
+		const dadosCrm = {
+			nome: nome,
+			email: envioEscolhido === 'email' ? contato : '',
+			telefone: envioEscolhido === 'whatsapp' ? contato : '',
+			empresa: empresa,
+			cnpj: cnpj
+		};
+
 		Swal.fire({
 			title: 'Enviando...',
 			text: 'Por favor, aguarde.',
@@ -785,25 +793,42 @@ jQuery(document).ready(function ($) {
 			}
 		});
 
+		// Enviar para o WP (email)
 		$.ajax({
 			url: wpurl.admin_url,
 			method: 'POST',
 			data: dados,
 			success: function (response) {
-				Swal.fire({
-					icon: 'success',
-					title: 'Orçamento enviado!',
-					text: 'Obrigado por entrar em contato.',
-					confirmButtonColor: '#f97316'
-				});
+				// Depois do email, envia para o CRM
+				$.ajax({
+					url: 'https://crmcasadoaco.wave.pro.br/wp-json/crm-wave/v1/create-lead/site-casadoaco',
+					method: 'POST',
+					contentType: 'application/json',
+					data: JSON.stringify(dadosCrm),
+					success: function () {
+						// Sucesso total
+						Swal.fire({
+							icon: 'success',
+							title: 'Orçamento enviado!',
+							text: 'Obrigado por entrar em contato.',
+							confirmButtonColor: '#f97316'
+						});
 
-				localStorage.removeItem('cart');
-				$('.step1').hide();
-				$('.step2').hide();
-				$('.product-table').hide();
-				$('.product-table').hide();
-				$('.header-title').hide();
-				$('.step3').removeClass('hidden').show();
+						localStorage.removeItem('cart');
+						$('.step1, .step2, .product-table, .header-title').hide();
+						$('.step3').removeClass('hidden').show();
+					},
+					error: function () {
+						// Se o CRM falhar, ainda assim mostramos sucesso no orçamento
+						console.warn('Lead enviado por email, mas falhou no CRM.');
+						Swal.fire({
+							icon: 'success',
+							title: 'Orçamento enviado!',
+							text: 'Mas houve um erro ao registrar no sistema.',
+							confirmButtonColor: '#f97316'
+						});
+					}
+				});
 			},
 			error: function (err) {
 				Swal.fire({
@@ -816,6 +841,7 @@ jQuery(document).ready(function ($) {
 			}
 		});
 	});
+
 	function isMobile() {
 		return window.innerWidth <= 768;
 	}
@@ -836,5 +862,4 @@ jQuery(document).ready(function ($) {
 			}, 600);
 		}
 	});
-
 });
