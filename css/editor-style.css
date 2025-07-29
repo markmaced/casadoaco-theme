@@ -500,6 +500,9 @@
   .max-h-\[90\%\] {
     max-height: 90%;
   }
+  .min-h-\[400px\] {
+    min-height: 400px;
+  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -1533,6 +1536,31 @@
   .md\:w-4\/5 {
     @media (width >= 782px) {
       width: calc(4/5 * 100%);
+    }
+  }
+  .md\:w-24 {
+    @media (width >= 782px) {
+      width: calc(var(--spacing) * 24);
+    }
+  }
+  .md\:w-28 {
+    @media (width >= 782px) {
+      width: calc(var(--spacing) * 28);
+    }
+  }
+  .md\:w-30 {
+    @media (width >= 782px) {
+      width: calc(var(--spacing) * 30);
+    }
+  }
+  .md\:w-32 {
+    @media (width >= 782px) {
+      width: calc(var(--spacing) * 32);
+    }
+  }
+  .md\:w-36 {
+    @media (width >= 782px) {
+      width: calc(var(--spacing) * 36);
     }
   }
   .md\:w-\[13\%\] {

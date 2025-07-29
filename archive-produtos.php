@@ -112,7 +112,7 @@
                                 </div>
 
                                 <a href="<?php the_permalink(); ?>"
-                                    class="inline-block bg-casadoaco-orange text-white text-sm font-semibold px-4 py-2 rounded hover:bg-black transition mt-auto">
+                                    class="inline-block bg-casadoaco-orange text-white text-sm font-semibold px-4 py-2 rounded hover:bg-black transition mt-auto text-center md:w-28">
                                     Saiba mais
                                 </a>
                             </div>
