@@ -96,20 +96,25 @@
                     <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="resultProducts">
                         <?php while ($query->have_posts()):
                             $query->the_post(); ?>
-                            <div class="w-full">
+                            <div class="w-full flex flex-col h-full">
                                 <?php if (has_post_thumbnail()): ?>
                                     <div class="w-full mb-4">
                                         <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>"
                                             class="rounded-xl w-full h-48 object-cover">
                                     </div>
                                 <?php endif; ?>
-                                <h3 class="font-bold text-lg mb-2"><?php the_title(); ?></h3>
-                                <div class="text-sm text-gray-600 line-clamp-2 mb-4">
-                                    <?php the_excerpt(); ?>
+
+                                <div class="flex-grow">
+                                    <h3 class="font-bold text-lg mb-2"><?php the_title(); ?></h3>
+                                    <div class="text-sm text-gray-600 line-clamp-2 mb-4">
+                                        <?php the_excerpt(); ?>
+                                    </div>
                                 </div>
+
                                 <a href="<?php the_permalink(); ?>"
-                                    class="inline-block bg-casadoaco-orange text-white text-sm font-semibold px-4 py-2 rounded hover:bg-black transition">Saiba
-                                    mais</a>
+                                    class="inline-block bg-casadoaco-orange text-white text-sm font-semibold px-4 py-2 rounded hover:bg-black transition mt-auto">
+                                    Saiba mais
+                                </a>
                             </div>
                         <?php endwhile; ?>
                     </div>

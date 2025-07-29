@@ -396,6 +396,9 @@
   .mt-32 {
     margin-top: calc(var(--spacing) * 32);
   }
+  .mt-auto {
+    margin-top: auto;
+  }
   .alignnone {
     height: auto;
     max-width: 100%;
@@ -624,6 +627,9 @@
   }
   .flex-shrink-0 {
     flex-shrink: 0;
+  }
+  .flex-grow {
+    flex-grow: 1;
   }
   .grow {
     flex-grow: 1;
