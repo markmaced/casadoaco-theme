@@ -26,7 +26,6 @@
     --container-sm: 24rem;
     --container-2xl: 42rem;
     --container-6xl: 72rem;
-    --container-7xl: 80rem;
     --text-xs: var(--wp--preset--font-size--xs, 0.75rem);
     --text-xs--line-height: calc(1 / 0.75);
     --text-sm: var(--wp--preset--font-size--sm, 0.875rem);
@@ -511,12 +510,6 @@
   .h-\[205px\] {
     height: 205px;
   }
-  .h-\[312px\] {
-    height: 312px;
-  }
-  .h-\[350px\] {
-    height: 350px;
-  }
   .h-\[400px\] {
     height: 400px;
   }
@@ -580,9 +573,6 @@
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
-  .w-10 {
-    width: calc(var(--spacing) * 10);
-  }
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
@@ -643,9 +633,6 @@
   }
   .max-w-6xl {
     max-width: var(--container-6xl);
-  }
-  .max-w-7xl {
-    max-width: var(--container-7xl);
   }
   .max-w-full {
     max-width: 100%;
@@ -1666,11 +1653,6 @@
       width: 20%;
     }
   }
-  .md\:w-\[25\%\] {
-    @media (width >= 782px) {
-      width: 25%;
-    }
-  }
   .md\:w-\[26\%\] {
     @media (width >= 782px) {
       width: 26%;
@@ -1686,11 +1668,6 @@
       width: 34%;
     }
   }
-  .md\:w-\[35\%\] {
-    @media (width >= 782px) {
-      width: 35%;
-    }
-  }
   .md\:w-\[37\%\] {
     @media (width >= 782px) {
       width: 37%;
@@ -1704,11 +1681,6 @@
   .md\:w-\[70px\] {
     @media (width >= 782px) {
       width: 70px;
-    }
-  }
-  .md\:w-\[80\%\] {
-    @media (width >= 782px) {
-      width: 80%;
     }
   }
   .md\:w-\[94\%\] {
@@ -1831,11 +1803,6 @@
       padding-bottom: calc(var(--spacing) * 10);
     }
   }
-  .md\:pb-16 {
-    @media (width >= 782px) {
-      padding-bottom: calc(var(--spacing) * 16);
-    }
-  }
   .md\:pl-0 {
     @media (width >= 782px) {
       padding-left: calc(var(--spacing) * 0);
@@ -1849,12 +1816,6 @@
   .md\:text-center {
     @media (width >= 782px) {
       text-align: center;
-    }
-  }
-  .md\:text-2xl {
-    @media (width >= 782px) {
-      font-size: var(--text-2xl);
-      line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
   }
   .md\:text-3xl {
@@ -2112,6 +2073,9 @@
   }
   #grab-scroll-container div {
     cursor: grabbing;
+  }
+  input[type="checkbox"] {
+    accent-color: #F7921A;
   }
   @media screen and (max-width:968px) {
     .swiper-button-next:after, .swiper-button-prev:after {

@@ -131,6 +131,9 @@ span.page-numbers.current {
 #grab-scroll-container div {
     cursor: grabbing;
 }
+input[type="checkbox"] {
+  accent-color: #F7921A; 
+}
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;
