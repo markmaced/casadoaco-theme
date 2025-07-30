@@ -128,6 +128,9 @@ span.page-numbers.current {
 .buttonActive h3{
     color: #fff;
 }
+#grab-scroll-container.grabbing {
+    cursor: grabbing;
+}
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;

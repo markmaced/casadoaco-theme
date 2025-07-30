@@ -23,7 +23,7 @@ function render_importador_tabelas()
 
         $titulo_tabela = $sheet->getCell('A1')->getFormattedValue();
 
-        $table = '<div class="relative overflow-x-auto">';
+        $table = '<div id="grab-scroll-container" class="relative overflow-x-auto">';
         $table .= '<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border border-gray-200">';
 
         $mergedCells = $sheet->getMergeCells();

@@ -75,15 +75,15 @@
   <div class="max-w-6xl mx-auto">
     <div class="flex justify-center gap-8 text-center text-black">
       <div class="w-1/3">
-        <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="3000">0</span></p>
+        <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="5000">0</span></p>
         <p class="text-sm mt-2 font-noto">clientes atendidos em todo Brasil</p>
       </div>
       <div class="w-1/3">
-        <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="10">0</span></p>
+        <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="10000">0</span></p>
         <p class="text-sm mt-2 font-noto">de produtos no portfólio</p>
       </div>
       <div class="w-1/3">
-        <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="400">0</span></p>
+        <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="1000">0</span></p>
         <p class="text-sm mt-2 font-noto">toneladas movimentadas por mês</p>
       </div>
     </div>

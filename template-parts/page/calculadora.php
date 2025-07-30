@@ -20,9 +20,9 @@
                 </div>
             </form> -->
         </div>
-        <div class="md:w-1/2 w-full px-5 md:px-0 flex gap-1 md:mb-0 mb-5">
-            <img src="<?php echo get_theme_image('calculadora-hero-1.png') ?>" class="md:w-full w-1/2">
-            <img src="<?php echo get_theme_image('calculadora-hero-2.png') ?>" class="md:w-full w-1/2">
+        <div class="md:w-1/2 w-full px-5 md:px-0 flex flex-col gap-1 md:mb-0 mb-5">
+            <img src="<?php echo get_theme_image('calculadora-hero-1.png') ?>" class="md:w-full w-1/2 h-56 object-cover">
+            <img src="<?php echo get_theme_image('calculadora-hero-2.png') ?>" class="md:w-full w-1/2 h-56 object-cover">
         </div>
     </div>
 </section>
