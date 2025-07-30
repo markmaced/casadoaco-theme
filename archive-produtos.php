@@ -35,7 +35,7 @@
                             ]);
 
                             if (!empty($subcategorias)): ?>
-                                <div class="ml-4">
+                                <div class="ml-4 mb-3">
                                     <?php foreach ($subcategorias as $subcat): ?>
                                         <label class="block">
                                             <input type="checkbox" name="categoria_produto[]"

@@ -128,7 +128,7 @@ span.page-numbers.current {
 .buttonActive h3{
     color: #fff;
 }
-#grab-scroll-container.grabbing {
+#grab-scroll-container div {
     cursor: grabbing;
 }
 @media screen and (max-width:968px){

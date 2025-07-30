@@ -77,36 +77,36 @@
     </div>
   </div>
 </section>
-<section class="w-full py-16 overflow-x-hidden">
+<section class="w-full pt-16 pb-10 overflow-x-hidden">
   <div class="max-w-6xl mx-auto flex md:gap-10 items-center relative">
     <div class="md:w-1/2 w-3/5 md:px-0 px-5">
-      <div class="flex w-full items-center mb-5">
+      <div class="flex w-full items-start mb-5">
         <div class="w-[10%]">
           <img src="<?php echo get_theme_image('rocket.png') ?>">
         </div>
         <div class="w-[90%]">
-          <h2 class="md:text-xl text-xl font-rockstar md:w-[70%] leading-6">
+          <h2 class="md:text-3xl text-xl font-rockstar md:w-[70%] leading-6">
             Organização e <span class="text-casadoaco-orange">controle técnico</span>
           </h2>
         </div>
       </div>
-      <p class="text-custom-gray md:text-base text-base font-noto mb-5">A CDA se destaca pela excelência no
+      <p class="text-custom-gray md:text-xl text-base font-noto font-normal mb-5">A CDA se destaca pela excelência no
         armazenamento, padronização e manuseio dos metais.</p>
-      <p class="text-custom-gray text-base font-noto mb-10">Cada lote é inspecionado com critérios rigorosos,
+      <p class="text-custom-gray md:text-xl text-base font-noto font-normal mb-10">Cada lote é inspecionado com critérios rigorosos,
         assegurando que você receba o material certo, no prazo combinado.</p>
     </div>
-    <div class="md:w-1/2 w-2/5 relative">
+    <div class="md:w-1/2 w-2/5 relative overflow-x-hidden rounded-2xl">
       <img src="<?php echo get_theme_image('cda-1.png') ?>"
-        class="md:w-full w-[312px] md:relative absolute h-[400px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -right-3">
+        class="md:w-full w-[312px] md:relative absolute h-[400px] md:h-[340px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -right-3">
     </div>
   </div>
 </section>
 
-<section class="w-full md:pb-16">
+<section class="w-full md:pb-10">
   <div class="max-w-6xl mx-auto flex md:gap-10 items-center">
-    <div class="md:w-1/2 w-2/5 relative">
+    <div class="md:w-1/2 w-2/5 relative overflow-x-hidden rounded-2xl">
       <img src="<?php echo get_theme_image('cda-2.png') ?>"
-        class="md:w-full w-[312px] md:relative absolute h-[400px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -left-3">
+        class="md:w-full w-[312px] md:relative absolute h-[400px] md:h-[340px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -left-3">
     </div>
     <div class="md:w-1/2 w-3/5 md:px-0 px-5">
       <div class="flex w-full items-center mb-5">
@@ -114,12 +114,12 @@
           <img src="<?php echo get_theme_image('rocket.png') ?>">
         </div>
         <div class="w-[90%]">
-          <h2 class="md:text-xl text-xl font-rockstar md:w-[70%] leading-6">
+          <h2 class="md:text-3xl text-xl font-rockstar md:w-[70%] leading-6">
             Eficiência do <span class="text-casadoaco-orange">início ao fim</span>
           </h2>
         </div>
       </div>
-      <p class="text-custom-gray md:text-base text-base font-noto mb-10">Com uma equipe qualificada e estrutura pronta
+      <p class="text-custom-gray md:text-xl text-base font-noto mb-10">Com uma equipe qualificada e estrutura pronta
         para grandes volumes, garantimos eficiência em todas as etapas: do recebimento ao carregamento. Isso assegura
         mais agilidade, precisão e segurança no seu pedido.</p>
     </div>
@@ -128,11 +128,11 @@
 
 <section class="w-full pt-16 pb-20">
   <div class="max-w-6xl mx-auto flex flex-col justify-center md:px-0 px-5">
-    <h2 class="text-black font-noto mb-5 text-3xl text-center font-semibold">
+    <h2 class="text-black font-noto mb-5 text-3xl text-center font-bold">
       Conheça os <span class="text-casadoaco-orange">produtos</span> que trabalhamos
     </h2>
-    <p class="text-center mx-auto text-sm mb-1 font-bold">Matéria-prima de confiança para quem exige precisão.</p>
-    <p class="text-center mx-auto text-sm mb-10">Nossa linha atende às demandas industriais com alto padrão de
+    <p class="text-center mx-auto text-sm md:text-lg mb-1">Matéria-prima de confiança para quem exige precisão.</p>
+    <p class="text-center mx-auto text-sm md:text-lg mb-10">Nossa linha atende às demandas industriais com alto padrão de
       qualidade, pronta entrega e corte sob medida.</p>
     <div class="w-full">
       <?php

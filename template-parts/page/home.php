@@ -97,17 +97,17 @@
         class="md:w-full w-[312px] md:relative absolute h-[400px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -left-3">
     </div>
     <div class="md:w-1/2 w-3/5 md:px-0 px-5">
-      <div class="flex w-full items-center mb-5">
+      <div class="flex w-full items-start mb-5">
         <div class="w-[10%]">
           <img src="<?php echo get_theme_image('rocket.png') ?>">
         </div>
         <div class="w-[90%]">
-          <h2 class="md:text-lg text-base font-rockstar md:w-[70%] md:leading-6 leading-5">
+          <h2 class="md:text-3xl text-base font-rockstar md:w-[70%] md:leading-6 leading-5">
             Atendimento técnico e estrutura de ponta <span class="text-casadoaco-orange">para o seu projeto</span>
           </h2>
         </div>
       </div>
-      <p class="text-custom-gray md:text-sm text-sm font-noto mb-10">
+      <p class="text-custom-gray md:text-xl text-sm font-noto font-normal mb-10">
         Nos bastidores da Casa do Aço, uma equipe especializada acompanha cada etapa para garantir excelência em
         qualidade e precisão. Desde a seleção dos materiais até o suporte ao cliente, somos movidos por agilidade,
         responsabilidade e parceria.
