@@ -866,7 +866,7 @@ jQuery(document).ready(function ($) {
     var startX;
     var scrollLeft;
 
-    var $container = $("#grab-scroll-container");
+    var $container = $("#grab-scroll-container div table");
 
     $container.on("mousedown", function(e) {
         isDown = true;

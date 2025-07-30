@@ -70,7 +70,7 @@
     <div class="max-w-6xl mx-auto">
         <h2 class="md:text-4xl text-3xl font-rockstar mb-5 text-black">Tabela de medida <span
                 class="<?php echo $classe ?>"><?php echo the_title() ?></span></h2>
-        <div class="w-full">
+        <div id="grab-scroll-container" class="w-full">
             <?php
             $table = get_field('shortcode_da_tabela', get_the_ID());
             echo do_shortcode($table);
