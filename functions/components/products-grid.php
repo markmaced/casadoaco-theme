@@ -44,7 +44,7 @@ function products_grid()
                 <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <?php while ($query->have_posts()):
                         $query->the_post(); ?>
-                        <div class="w-full flex flex-col justify-between min-h-[400px]" data-aos="zoom-in-right">
+                        <div class="w-full flex flex-col justify-between min-h-[325px]" data-aos="zoom-in-right">
                             <?php if (has_post_thumbnail()): ?>
                                 <div class="w-full mb-4">
                                     <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title(); ?>"
