@@ -96,7 +96,7 @@
         assegurando que você receba o material certo, no prazo combinado.</p>
     </div>
     <div class="md:w-1/2 w-2/5 relative overflow-x-hidden rounded-2xl">
-      <img src="<?php echo get_theme_image('cda-1.png') ?>"
+      <img src="<?php echo get_theme_image('cda-1.jpg') ?>"
         class="md:w-full w-[312px] md:relative absolute h-[400px] md:h-[340px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -right-3">
     </div>
   </div>
