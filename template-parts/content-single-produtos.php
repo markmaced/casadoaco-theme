@@ -148,7 +148,7 @@ $query = new WP_Query($args);
 
                         <div class="mt-auto">
                             <a href="<?php the_permalink(); ?>"
-                                class="block text-center bg-casadoaco-orange text-white text-sm font-semibold px-4 py-2 rounded hover:bg-black transition">
+                                class="block text-center bg-casadoaco-orange text-white text-sm font-semibold px-4 py-2 rounded hover:bg-black transition md:w-2/5">
                                 Saiba mais
                             </a>
                         </div>
