@@ -68,18 +68,20 @@
         </div>
     </div>
 </section>
-<section class="w-full py-12 md:px-0 px-5">
-    <div class="max-w-6xl mx-auto">
-        <!-- Artigos mais antigos -->
-        <h3 class="text-2xl font-bold mb-16 font-rockstar">ARTIGOS MAIS ANTIGOS</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="old-posts">
-            <?php
-            $older_posts = new WP_Query([
-                'post_type' => 'post',
-                'offset' => 4,
-                'posts_per_page' => 16
-            ]);
-            if ($older_posts->have_posts()):
+<?php
+$older_posts = new WP_Query([
+    'post_type' => 'post',
+    'offset' => 4,
+    'posts_per_page' => 16
+]);
+if ($older_posts->have_posts()):
+    ?>
+    <section class="w-full py-12 md:px-0 px-5">
+        <div class="max-w-6xl mx-auto">
+            <!-- Artigos mais antigos -->
+            <h3 class="text-2xl font-bold mb-16 font-rockstar">ARTIGOS MAIS ANTIGOS</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="old-posts">
+                <?php
                 while ($older_posts->have_posts()):
                     $older_posts->the_post(); ?>
                     <div class="flex flex-col gap-6">
@@ -106,9 +108,7 @@
                         </div>
                     </div>
                 <?php endwhile;
-                wp_reset_postdata();
-            endif;
-            ?>
+                wp_reset_postdata(); ?>
         </div>
 
         <!-- Botão carregar mais -->
@@ -120,5 +120,6 @@
         </div>
     </div> -->
 </section>
+<?php endif; ?>
 <?php echo do_shortcode('[calculator_cta]') ?>
 <?php echo do_shortcode('[products_grid]') ?>
