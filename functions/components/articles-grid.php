@@ -23,7 +23,7 @@ function articles_grid()
                     </div>
                 </div>
                 <div class="w-1/2 flex justify-end items-center">
-                    <a href="#" class="font-noto text-sm" style="text-decoration: underline !important;">Ver todos os artigos</a>
+                    <a href="/blog" class="font-noto text-sm" style="text-decoration: underline !important;">Ver todos os artigos</a>
                 </div>
             </div>
 
