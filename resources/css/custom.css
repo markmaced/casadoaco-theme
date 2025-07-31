@@ -134,6 +134,13 @@ span.page-numbers.current {
 input[type="checkbox"] {
   accent-color: #F7921A; 
 }
+.post-content p{
+    margin-bottom: 20px;
+}
+.post-content ul{
+    margin-bottom: 20px;
+    list-style: circle;
+}
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;

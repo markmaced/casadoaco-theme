@@ -18,7 +18,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="font-noto mb-10">
+		<div class="font-noto mb-10 post-content">
 			<?php echo the_content() ?>
 		</div>
 		<div class="mx-auto w-[95%] bg-black h-[1px] mb-5"></div>

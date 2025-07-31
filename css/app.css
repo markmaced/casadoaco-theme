@@ -534,9 +534,6 @@
   .min-h-\[325px\] {
     min-height: 325px;
   }
-  .min-h-\[400px\] {
-    min-height: 400px;
-  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -2082,6 +2079,13 @@
   }
   input[type="checkbox"] {
     accent-color: #F7921A;
+  }
+  .post-content p {
+    margin-bottom: 20px;
+  }
+  .post-content ul {
+    margin-bottom: 20px;
+    list-style: circle;
   }
   @media screen and (max-width:968px) {
     .swiper-button-next:after, .swiper-button-prev:after {
