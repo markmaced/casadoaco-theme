@@ -80,7 +80,7 @@
       </div>
       <div class="w-1/3">
         <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="10000">0</span></p>
-        <p class="text-sm mt-2 font-noto">de produtos no portfólio</p>
+        <p class="text-sm mt-2 font-noto">produtos no portfólio</p>
       </div>
       <div class="w-1/3">
         <p class="md:text-6xl text-3xl font-bold font-rockstar"><span class="counter" data-target="1000">0</span></p>

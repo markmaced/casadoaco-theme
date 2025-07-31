@@ -4,7 +4,7 @@
     <img src="<?php echo get_theme_image('logo-cda.png')?>" class="w-96 mx-auto mb-10">
     <h1
       class="md:w-3/5 mx-auto text-casadoaco-orange font-rockstar md:text-5xl text-3xl md:text-center md:mb-0 mb-5 text-center">
-      Tubos técnicos para projetos de alta exigência
+      Projetos de alta exigência
     </h1>
     <h2 class="text-white text-base font-noto md:w-2/5 md:text-center mx-auto md:mb-0 mb-5 text-center">
       Precisão, acabamento e matéria-prima certificada para quem não pode errar.
