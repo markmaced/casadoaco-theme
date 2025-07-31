@@ -123,4 +123,4 @@
 
 <?php echo do_shortcode('[products_grid]') ?>
 <?php echo do_shortcode('[calculator_cta]') ?>
-<?php # echo do_shortcode('[articles_grid]') ?>
+<?php echo do_shortcode('[articles_grid]') ?>
