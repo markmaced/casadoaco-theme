@@ -77,7 +77,7 @@
     </div>
   </div>
 </section>
-<section class="w-full pt-16 pb-10 overflow-x-hidden">
+<section class="w-full pt-16 pb-10 md:overflow-x-hidden">
   <div class="max-w-6xl mx-auto flex md:gap-10 items-center relative">
     <div class="md:w-1/2 w-3/5 md:px-0 px-5">
       <div class="flex w-full items-start mb-5">
@@ -95,7 +95,7 @@
       <p class="text-custom-gray md:text-xl text-base font-noto font-normal mb-10">Cada lote é inspecionado com critérios rigorosos,
         assegurando que você receba o material certo, no prazo combinado.</p>
     </div>
-    <div class="md:w-1/2 w-2/5 relative overflow-x-hidden rounded-2xl">
+    <div class="md:w-1/2 w-2/5 relative md:overflow-x-hidden rounded-2xl">
       <img src="<?php echo get_theme_image('cda-1.jpg') ?>"
         class="md:w-full w-[312px] md:relative absolute h-[400px] md:h-[340px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -right-3">
     </div>
@@ -104,7 +104,7 @@
 
 <section class="w-full md:pb-10">
   <div class="max-w-6xl mx-auto flex md:gap-10 items-center">
-    <div class="md:w-1/2 w-2/5 relative overflow-x-hidden rounded-2xl">
+    <div class="md:w-1/2 w-2/5 relative md:overflow-x-hidden rounded-2xl">
       <img src="<?php echo get_theme_image('cda-2.png') ?>"
         class="md:w-full w-[312px] md:relative absolute h-[400px] md:h-[340px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -left-3">
     </div>

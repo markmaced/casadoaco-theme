@@ -92,7 +92,7 @@
 
 <section class="w-full py-16" id="casadoaco">
   <div class="max-w-6xl mx-auto flex md:gap-10 items-center">
-    <div class="md:w-1/2 w-2/5 relative overflow-x-hidden rounded-2xl">
+    <div class="md:w-1/2 w-2/5 relative md:overflow-x-hidden rounded-2xl">
       <img src="<?php echo get_theme_image('office.png') ?>"
         class="md:w-full w-[312px] md:relative absolute h-[400px] md:top-0 -top-52 object-cover md:rounded-none rounded-2xl md:left-0 -left-3">
     </div>
@@ -113,7 +113,7 @@
         responsabilidade e parceria.
       </p>
       <a href="/contato"
-        class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold text-base transition-all duration-500 hover:bg-black"
+        class="text-white bg-casadoaco-orange py-1.5 md:px-5 px-3 rounded-md font-noto font-semibold md:text-base text-sm transition-all duration-500 hover:bg-black"
         data-aos="zoom-in-up">
         Fale com nosso time
       </a>
