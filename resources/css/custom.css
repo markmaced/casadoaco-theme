@@ -146,6 +146,9 @@ header{
     top: 0;
     z-index: 20;
 }
+.fachada-img{
+    object-position: 0px -50px;
+}
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;
@@ -156,5 +159,8 @@ header{
     }
     .swiper-button-next{
         right: 10px !important;
+    }
+    .fachada-img{
+        object-position: 0px;
     }
 }

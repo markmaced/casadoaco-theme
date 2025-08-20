@@ -1,4 +1,4 @@
-<section class="w-full py-16 md:px-0 px-5">
+<section class="w-full pb-16 pt-32 md:px-0 px-5">
 	<div class="max-w-6xl mx-auto">
 		<h2 class="text-5xl font-rockstar text-casadoaco-orange mb-10"><?php echo the_title() ?></h2>
 		<?php the_post_thumbnail('large', ['class' => 'w-full h-[632px] object-cover rounded-md']); ?>

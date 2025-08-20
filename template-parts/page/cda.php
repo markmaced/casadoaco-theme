@@ -1,4 +1,4 @@
-<section class="w-full md:min-h-screen h-auto flex md:items-end items-center pb-20 md:px-0 px-5 bg-cover pt-48"
+<section class="w-full md:min-h-screen h-auto flex md:items-end items-center pb-20 md:px-0 px-5 bg-cover md:pt-48 pt-[150px]"
   style="background-image: url(<?php echo get_theme_image('hero-cda.jpg') ?>);">
   <div class="max-w-6xl mx-auto flex flex-col justify-center" data-aos="fade-down">
     <img src="<?php echo get_theme_image('logo-cda.png')?>" class="w-96 mx-auto mb-10">

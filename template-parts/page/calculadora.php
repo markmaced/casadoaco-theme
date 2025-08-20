@@ -1,4 +1,4 @@
-<section class="w-full pb-16 flex items-center pt-40">
+<section class="w-full pb-16 flex items-center md:pt-40 pt-[120px]">
     <div class="max-w-6xl mx-auto flex md:flex-row flex-col-reverse md:gap-5 items-center">
         <div class="md:w-1/2 w-full px-5 md:px-0 md:pr-10">
             <h1 class="md:text-4xl text-2xl font-rockstar mb-5">
@@ -20,8 +20,8 @@
                 </div>
             </form> -->
         </div>
-        <div class="md:w-1/2 w-full px-5 md:px-0 flex flex-col gap-1 md:mb-0 mb-5">
-            <img src="<?php echo get_theme_image('calculadora-hero-2.jpg') ?>" class="md:w-full w-1/2 h-56 object-cover rounded-2xl" style="object-position: 0px -50px;">
+        <div class="md:w-1/2 w-full px-5 md:px-0 flex md:flex-col flex-row gap-1 md:mb-0 mb-5">
+            <img src="<?php echo get_theme_image('calculadora-hero-2.jpg') ?>" class="md:w-full w-1/2 h-56 object-cover rounded-2xl fachada-img">
             <img src="<?php echo get_theme_image('calculadora-hero-1.jpg') ?>" class="md:w-full w-1/2 h-56 object-cover rounded-2xl">
         </div>
     </div>
