@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="w-full pt-10">
+<section class="w-full pt-36">
     <div class="max-w-6xl mx-auto">
         <img src="<?php echo get_theme_image('hero-products.jpg') ?>" class="w-full">
     </div>

@@ -978,9 +978,6 @@
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
-  .py-20 {
-    padding-block: calc(var(--spacing) * 20);
-  }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
@@ -992,6 +989,21 @@
   }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
+  }
+  .pt-24 {
+    padding-top: calc(var(--spacing) * 24);
+  }
+  .pt-32 {
+    padding-top: calc(var(--spacing) * 32);
+  }
+  .pt-36 {
+    padding-top: calc(var(--spacing) * 36);
+  }
+  .pt-40 {
+    padding-top: calc(var(--spacing) * 40);
+  }
+  .pt-48 {
+    padding-top: calc(var(--spacing) * 48);
   }
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
@@ -1806,6 +1818,11 @@
       padding-bottom: calc(var(--spacing) * 10);
     }
   }
+  .md\:pb-16 {
+    @media (width >= 782px) {
+      padding-bottom: calc(var(--spacing) * 16);
+    }
+  }
   .md\:pl-0 {
     @media (width >= 782px) {
       padding-left: calc(var(--spacing) * 0);
@@ -2086,6 +2103,11 @@
   .post-content ul {
     margin-bottom: 20px;
     list-style: disc;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 20;
   }
   @media screen and (max-width:968px) {
     .swiper-button-next:after, .swiper-button-prev:after {

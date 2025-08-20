@@ -1,4 +1,4 @@
-<section class="w-full bg-black relative overflow-hidden">
+<section class="w-full bg-black relative overflow-hidden pt-24">
   <div class="max-w-6xl mx-auto flex md:flex-row flex-col-reverse items-center relative md:py-20 z-10 md:min-h-[calc(100vh-96px)]">
     <div class="md:w-2/5 w-full relative z-10 md:px-0 px-5 py-10">
       <h1 class="text-casadoaco-orange md:text-6xl text-2xl font-rockstar font-bold mb-8" data-aos="fade-right">

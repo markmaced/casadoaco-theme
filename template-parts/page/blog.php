@@ -1,4 +1,4 @@
-<section class="w-full pt-5">
+<section class="w-full pt-32">
     <div class="max-w-6xl mx-auto md:px-0 px-5">
         <!-- Últimos artigos -->
         <h2 class="text-5xl font-bold mb-10 font-rockstar">BLOG - HOME</h2>

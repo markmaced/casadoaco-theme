@@ -141,6 +141,11 @@ input[type="checkbox"] {
     margin-bottom: 20px;
     list-style: disc;
 }
+header{
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
 @media screen and (max-width:968px){
     .swiper-button-next:after, .swiper-button-prev:after {
         font-size: 24px !important;

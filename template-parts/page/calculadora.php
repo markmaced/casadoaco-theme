@@ -1,4 +1,4 @@
-<section class="w-full py-16 flex items-center">
+<section class="w-full pb-16 flex items-center pt-40">
     <div class="max-w-6xl mx-auto flex md:flex-row flex-col-reverse md:gap-5 items-center">
         <div class="md:w-1/2 w-full px-5 md:px-0 md:pr-10">
             <h1 class="md:text-4xl text-2xl font-rockstar mb-5">
